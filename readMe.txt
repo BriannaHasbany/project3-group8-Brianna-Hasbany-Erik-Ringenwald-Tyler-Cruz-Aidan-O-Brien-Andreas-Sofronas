@@ -13,6 +13,7 @@ Home Page:
 
 Who We Are:
 - cards for team members
+- animated mission statement container 
 
 Services: 
 
