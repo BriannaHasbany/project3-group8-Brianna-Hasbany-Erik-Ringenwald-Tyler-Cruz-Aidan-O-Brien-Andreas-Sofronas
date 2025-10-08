@@ -1,101 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
-   <title>Maintenance Services</title>
-  <style>
-    h1 {
-      font-family: "Arial Black", sans-serif;
-      font-weight: 900;
-      letter-spacing: 1px;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css" />
+    <title>Maintenance Services</title>
+    <style>
+      h1 {
+        font-family: "Arial Black", sans-serif;
+        font-weight: 900;
+        letter-spacing: 1px;
+      }
 
-    h2, h3, h4, h5, h6 {
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    }  
-    
-    body {
-      font-family: Tahoma, "Trebuchet MS", sans-serif;
-      margin: 0;
-      background-color: beige;
-    }
-  
-    header {
-      background-image: url("images/avHeader.jpg"); 
-      background-position: center;
-      height: 200px; 
-      position: relative;
-      color: white;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
-      z-index: 1;
-    }
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
 
-    header h1 {
-      font-family:"Arial Black", sans-serif;
-      font-weight: 900;
-      letter-spacing: 2px;
-      margin: 0;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -100%);
-      font-size: 40px;
-      text-align: center;
-      width: 90%;
-    }
+      body {
+        font-family: Tahoma, "Trebuchet MS", sans-serif;
+        margin: 0;
+        background-color: beige;
+      }
 
-    .hamburger {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      background: rgba(0,0,0,0.5);
-      color: white;
-    }
+      header {
+        background-image: url("images/avHeader.jpg");
+        background-position: center;
+        height: 200px;
+        position: relative;
+        color: white;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+        z-index: 1;
+      }
 
-    /* Overlay */
-    #myOverlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0,0,0,0.6);
-      z-index: 999;
-      display: none;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
+      header h1 {
+        font-family: "Arial Black", sans-serif;
+        font-weight: 900;
+        letter-spacing: 2px;
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -100%);
+        font-size: 40px;
+        text-align: center;
+        width: 90%;
+      }
 
-    #myOverlay.show {
-      display: block;
-      opacity: 1;
-    }
+      .hamburger {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        background: rgba(0, 0, 0, 0.5);
+        color: white;
+      }
 
-    /* Sidebar */
-    #mySidebar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 260px;
-      background: white;
-      z-index: 1000;
-      transform: translateX(-100%);
-      transition: transform 0.3s ease;
-    }
+      /* Overlay */
+      #myOverlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+        z-index: 999;
+        display: none;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
 
-    #mySidebar.show {
-      transform: translateX(0);
-    }
+      #myOverlay.show {
+        display: block;
+        opacity: 1;
+      }
 
-    .close-btn {
-      font-size: 14px;
-      padding: 6px 10px;
-    }
+      /* Sidebar */
+      #mySidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 260px;
+        background: white;
+        z-index: 1000;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+      }
 
-     /*Services Links*/
+      #mySidebar.show {
+        transform: translateX(0);
+      }
+
+      .close-btn {
+        font-size: 14px;
+        padding: 6px 10px;
+      }
+
+      /*Services Links*/
       .service-links a {
         text-decoration: none;
         color: #b30000;
@@ -122,53 +126,93 @@
       html {
         scroll-behavior: smooth;
       }
-  </style>
-</head>
-<body style="display: flex; flex-direction: column; min-height: 100vh; margin: 0;">
+    </style>
+  </head>
+  <body
+    style="display: flex; flex-direction: column; min-height: 100vh; margin: 0"
+  >
+    <!-- Header with image background -->
+    <header class="w3-display-container">
+      <button class="w3-button w3-xlarge hamburger" onclick="w3_open()">
+        &#9776;
+      </button>
+      <h1>Maintenance & Routine Services</h1>
+    </header>
 
-  <!-- Header with image background -->
-  <header class="w3-display-container">
-    <button class="w3-button w3-xlarge hamburger" onclick="w3_open()">&#9776;</button>
-    <h1>Maintenance & Routine Services</h1>
-  </header>
-
-  <!-- Sidebar -->
-  <div class="w3-sidebar w3-bar-block" id="mySidebar">
-    <div class="w3-container w3-center" style="padding:16px">
-      <img src="images/av-logo.png" alt="Company Logo" style="width:200px;max-width:100%">
+    <!-- Sidebar -->
+    <div class="w3-sidebar w3-bar-block" id="mySidebar">
+      <div class="w3-container w3-center" style="padding: 16px">
+        <img
+          src="images/av-logo.png"
+          alt="Company Logo"
+          style="width: 200px; max-width: 100%"
+        />
+      </div>
+      <hr />
+      <button
+        class="w3-bar-item w3-button close-btn w3-right"
+        onclick="w3_close()"
+      >
+        ✕ Close
+      </button>
+      <br /><br />
+      <a href="index.html" class="w3-bar-item w3-button w3-hover-blue">Home</a>
+      <a href="avWhoWeAre.html" class="w3-bar-item w3-button w3-hover-blue"
+        >About Us</a
+      >
+      <button
+        class="w3-button w3-block w3-left-align"
+        onclick="toggleAccordion('acc2', this)"
+      >
+        Services <span class="arrow">▼</span>
+      </button>
+      <div id="acc2" class="w3-hide w3-white w3-card">
+        <a
+          href="avCollisionRepairs.html"
+          class="w3-bar-item w3-button w3-hover-blue"
+          >Collision & Body Work</a
+        >
+        <a href="avMaintenence.html" class="w3-bar-item w3-button w3-hover-blue"
+          >Maintenance & Routine Services</a
+        >
+        <a href="avAutomotive.html" class="w3-bar-item w3-button w3-hover-blue"
+          >Mechanical & Performance</a
+        >
+        <a href="avEstimates.html" class="w3-bar-item w3-button w3-hover-blue"
+          >Estimates & Records</a
+        >
+      </div>
+      <button
+        class="w3-button w3-block w3-left-align"
+        onclick="toggleAccordion('acc3', this)"
+      >
+        Our Work <span class="arrow">▼</span>
+      </button>
+      <div id="acc3" class="w3-hide w3-white w3-card">
+        <a
+          href="avPhotoGallery.html"
+          class="w3-bar-item w3-button w3-hover-blue"
+          >Photo Gallery</a
+        >
+        <a href="avReview.html" class="w3-bar-item w3-button w3-hover-blue"
+          >Reviews & Testimonials</a
+        >
+      </div>
+      <a href="avCarTalk.html" class="w3-bar-item w3-button w3-hover-blue"
+        >Our Blog: Car Talk</a
+      >
+      <a href="avContactJoin.html" class="w3-bar-item w3-button w3-hover-blue"
+        >Contact Information</a
+      >
     </div>
-    <hr>
-    <button class="w3-bar-item w3-button close-btn w3-right" onclick="w3_close()">✕ Close</button>
-    <br><br>
-    <a href="index.html" class="w3-bar-item w3-button w3-hover-blue">Home</a>
-    <a href="avWhoWeAre.html" class="w3-bar-item w3-button w3-hover-blue">About Us</a>
-    <button class="w3-button w3-block w3-left-align" onclick="toggleAccordion('acc2', this)">
-      Services <span class="arrow">▼</span>
-    </button>
-    <div id="acc2" class="w3-hide w3-white w3-card">
-      <a href="avCollisionRepairs.html" class="w3-bar-item w3-button w3-hover-blue">Collision & Body Work</a>
-      <a href="avMaintenence.html" class="w3-bar-item w3-button w3-hover-blue">Maintenance & Routine Services</a>
-      <a href="avAutomotive.html" class="w3-bar-item w3-button w3-hover-blue">Mechanical & Performance</a>
-      <a href="avEstimates.html" class="w3-bar-item w3-button w3-hover-blue">Estimates & Records</a>
-    </div>
-    <button class="w3-button w3-block w3-left-align" onclick="toggleAccordion('acc3', this)">
-      Our Work <span class="arrow">▼</span>
-    </button>
-    <div id="acc3" class="w3-hide w3-white w3-card">
-      <a href="avPhotoGallery.html" class="w3-bar-item w3-button w3-hover-blue">Photo Gallery</a>
-      <a href="avReview.html" class="w3-bar-item w3-button w3-hover-blue">Reviews & Testimonials</a>
-    </div>
-    <a href="avCarTalk.html" class="w3-bar-item w3-button w3-hover-blue">Our Blog: Car Talk</a>
-    <a href="avContactJoin.html" class="w3-bar-item w3-button w3-hover-blue">Contact Information</a>
-  </div>
 
-  <!-- Overlay -->
-  <div onclick="w3_close()" id="myOverlay"></div>
+    <!-- Overlay -->
+    <div onclick="w3_close()" id="myOverlay"></div>
 
-  <!-- Main content -->
-  <main class="w3-container" style="flex: 1; padding: 40px 20px">
+    <!-- Main content -->
+    <main class="w3-container" style="flex: 1; padding: 40px 20px">
       <h2 class="w3-center" style="font-size: 36px; font-weight: 800">
-       Maintenance & Routine Services
+        Maintenance & Routine Services
       </h2>
       <p class="w3-center" style="font-size: 18px">
         Select a service to learn more:
@@ -192,85 +236,251 @@
       <!-- Service sections -->
       <div id="oil" class="section-block" style="margin-top: 50px">
         <h3>Oil & Fluid Maintenance</h3>
+
+        <p>
+          Even modern cars need regular attention—especially their six main
+          fluids. Proper fluid levels and quality are essential for performance,
+          longevity, and safety.
+        </p>
+
+        <ul style="line-height: 1.8; margin-left: 20px">
+          <li>
+            <strong>Engine Oil:</strong> Keeps engine components moving
+            smoothly. Check level and condition regularly; change as needed.
+          </li>
+          <li>
+            <strong>Coolant:</strong> Absorbs and dissipates engine heat.
+            Prevents overheating; check at least every 50,000 miles.
+          </li>
+          <li>
+            <strong>Power Steering Fluid:</strong> Hydraulic systems rely on
+            this for easy steering. Check regularly.
+          </li>
+          <li>
+            <strong>Brake Fluid:</strong> Can become contaminated by water,
+            causing spongy pedals or corrosion. Inspect and flush as needed.
+          </li>
+          <li>
+            <strong>Transmission Fluid:</strong> Lubricates and cools
+            transmission components. Check if you notice rough shifts or strange
+            noises.
+          </li>
+          <li>
+            <strong>Windshield Washer Fluid:</strong> Essential for visibility
+            and safe driving. Top off whenever possible.
+          </li>
+        </ul>
+
+        <p style="font-weight: bold; margin-top: 20px">
+          Tip: Regular checks and maintenance prevent costly repairs and keep
+          your car running safely and efficiently.
+        </p>
       </div>
 
       <div id="tires" class="section-block" style="margin-top: 50px">
         <h3>Tires (general)</h3>
+        <p>
+          As tires wear, their performance decreases—especially on wet, snowy,
+          or icy roads. AV Repair can measure your tire tread depth to determine
+          if they are safe for the road or need replacement.
+        </p>
+
+        <p>
+          For example, a car traveling at 70 mph with tires at the legal minimum
+          tread depth of 2/32" can take about 100 feet longer to stop compared
+          to tires with 4/32" tread depth. At that point, the vehicle with worn
+          tires may still be moving at 45 mph while the better-treaded car has
+          stopped.
+        </p>
+
+        <p style="font-weight: bold; margin-top: 20px">
+          Replacing tires before they reach the legal minimum may seem costly,
+          but it’s far safer and less expensive than repairing damage from an
+          accident due to poor stopping performance.
+        </p>
       </div>
 
       <div id="rotation" class="section-block" style="margin-top: 50px">
-       <h3>Tire Rotation & Balancing</h3>
+        <h3>Tire Rotation & Balancing</h3>
+        <p>
+          Rotating and balancing your tires is the most efficient way to extend
+          their lifespan. Tires wear unevenly due to friction, much like shoes,
+          and replacing them can be costly.
+        </p>
+
+        <p>
+          <strong>Rotation</strong> involves moving tires according to
+          manufacturer specifications, while <strong>balancing</strong> uses a
+          machine to check the weight distribution of the tire and wheel. Small
+          lead weights are added if necessary to ensure even balance.
+        </p>
+
+        <p>
+          Most manufacturers recommend rotating and balancing all four tires at
+          least every 7,000 miles. A convenient approach is to do this each time
+          you have your oil changed.
+        </p>
+
+        <p>
+          Proper rotation and balancing improves <strong>safety</strong> by
+          maintaining even tread wear—especially on front tires, which wear
+          faster and affect vehicle control—and <strong>efficiency</strong> by
+          allowing all four tires to wear evenly, reducing the need for
+          premature replacement.
+        </p>
+
+        <p style="font-weight: bold; margin-top: 20px">
+          Regular rotation and balancing helps prevent slipping or skidding and
+          maximizes the lifespan of your tires.
+        </p>
       </div>
 
       <div id="brake" class="section-block" style="margin-top: 50px">
-         <h3>Brake Repair</h3>
+        <h3>Brake Repair</h3>
+        <p>
+          <strong>Average Price:</strong> Sedan: $250–$350 per axle, SUV:
+          $350–$450 per axle.
+          <em>Call for an estimate for your specific vehicle.</em>
+        </p>
+
+        <p>
+          At <strong>AV Repair</strong>, we prioritize your safety and comfort.
+          Here are common brake issues and the services we provide:
+        </p>
+
+        <ul style="line-height: 1.8; margin-left: 20px">
+          <li>
+            <strong>Anti-Lock Brake System (ABS)</strong>: If your ABS light
+            comes on, we can diagnose and repair the problem.
+          </li>
+          <li>
+            <strong>Brake Fluid Flushes</strong>: Over time, brake fluid absorbs
+            water, reducing effectiveness and causing corrosion. Periodic
+            flushes keep your system safe.
+          </li>
+          <li>
+            <strong>Brake Hoses</strong>: Cracked or leaking hoses can cause
+            slow braking or total brake failure. We replace worn hoses promptly.
+          </li>
+          <li>
+            <strong>Brake Pad & Shoe Replacement</strong>: Squealing brakes
+            indicate wear. Ignoring worn pads can damage rotors or drums. Get
+            your brakes inspected immediately if you notice symptoms.
+          </li>
+          <li>
+            <strong>Caliper Replacement</strong>: Calipers clamp the pads to the
+            rotor. Faulty calipers can cause uneven braking, making your car
+            slide, especially in bad weather.
+          </li>
+        </ul>
       </div>
     </main>
 
-    
+    <!-- Footer -->
+    <footer
+      style="
+        background-color: #f2f2f2;
+        color: #333;
+        padding: 20px 40px;
+        text-align: left;
+      "
+    >
+      <div
+        style="
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          flex-wrap: wrap;
+        "
+      >
+        <!-- Left: Contact info -->
+        <div style="flex: 1; min-width: 200px">
+          <p>
+            <strong>Address:</strong> 2350 Turnpike St, North Andover, MA
+            01845<br />
+            <strong>Phone:</strong> (978) 975-0957<br />
+            <strong>Email:</strong>
+            <a href="mailto:avrepairinc@gmail.com">avrepairinc@gmail.com</a>
+          </p>
+        </div>
 
-<!-- Footer -->
-<footer style="background-color: #f2f2f2; color: #333; padding: 20px 40px; text-align: left;">
-  <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;">
+        <!-- Center: Company Logo -->
+        <div style="flex: 0 0 auto; text-align: center">
+          <img
+            src="images/av-logo.png"
+            alt="Company Logo"
+            style="height: 100px; max-width: 300%"
+          />
+        </div>
 
-     <!-- Left: Contact info -->
-    <div style="flex: 1; min-width: 200px;">
-      <p>
-        <strong>Address:</strong>  2350 Turnpike St, North Andover, MA 01845<br>
-        <strong>Phone:</strong>  (978) 975-0957<br>
-        <strong>Email:</strong> <a href="mailto:avrepairinc@gmail.com">avrepairinc@gmail.com</a>
-      </p>
-    </div>
+        <!-- Right: Facebook + Join Us -->
+        <div
+          style="
+            flex: 1;
+            min-width: 200px;
+            text-align: right;
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+          "
+        >
+          <!-- Facebook button -->
+          <a
+            href="https://www.facebook.com/groups/1889685858011404/"
+            target="_blank"
+            style="text-decoration: none"
+          >
+            <button
+              class="w3-button"
+              style="
+                padding: 5px 10px;
+                display: flex;
+                align-items: center;
+                gap: 5px;
+              "
+            >
+              <img
+                src="images/facebook-circular-logo.png"
+                alt="Facebook"
+                style="height: 24px; width: 24px"
+              />
+              Visit Facebook
+            </button>
+          </a>
 
-    <!-- Center: Company Logo -->
-    <div style="flex: 0 0 auto; text-align: center;">
-      <img src="images/av-logo.png" alt="Company Logo" style="height: 100px; max-width: 300%;">
-    </div>
+          <!-- Join Us button -->
+          <a href="avContactJoin.html" style="text-decoration: none">
+            <button class="w3-button w3-black">Join Us</button>
+          </a>
+        </div>
+      </div>
+    </footer>
 
-     <!-- Right: Facebook + Join Us -->
-    <div style="flex: 1; min-width: 200px; text-align: right; display: flex; justify-content: flex-end; gap: 10px;">
-      <!-- Facebook button -->
-      <a href="https://www.facebook.com/groups/1889685858011404/" target="_blank" style="text-decoration: none;">
-        <button class="w3-button" style="padding: 5px 10px; display: flex; align-items: center; gap: 5px;">
-          <img src="images/facebook-circular-logo.png" alt="Facebook" style="height: 24px; width: 24px;">
-          Visit Facebook
-        </button>
-      </a>
-
-      <!-- Join Us button -->
-      <a href="avContactJoin.html" style="text-decoration: none;">
-        <button class="w3-button w3-black">Join Us</button>
-      </a>
-    </div>
-  </div>
-</footer>
-
-
-  <!-- JavaScript-->
-  <script>
-    function w3_open() {
-      document.getElementById("mySidebar").classList.add("show");
-      document.getElementById("myOverlay").classList.add("show");
-    }
-
-    function w3_close() {
-      document.getElementById("mySidebar").classList.remove("show");
-      document.getElementById("myOverlay").classList.remove("show");
-    }
-
-    function toggleAccordion(id, btn) {
-      var x = document.getElementById(id);
-      var arrow = btn.querySelector(".arrow");
-      if (x.classList.contains("w3-show")) {
-        x.classList.remove("w3-show");
-        x.classList.add("w3-hide");
-        arrow.textContent = "▼";
-      } else {
-        x.classList.remove("w3-hide");
-        x.classList.add("w3-show");
-        arrow.textContent = "▲";
+    <!-- JavaScript-->
+    <script>
+      function w3_open() {
+        document.getElementById("mySidebar").classList.add("show");
+        document.getElementById("myOverlay").classList.add("show");
       }
-    }
-  </script>
-</body>
+
+      function w3_close() {
+        document.getElementById("mySidebar").classList.remove("show");
+        document.getElementById("myOverlay").classList.remove("show");
+      }
+
+      function toggleAccordion(id, btn) {
+        var x = document.getElementById(id);
+        var arrow = btn.querySelector(".arrow");
+        if (x.classList.contains("w3-show")) {
+          x.classList.remove("w3-show");
+          x.classList.add("w3-hide");
+          arrow.textContent = "▼";
+        } else {
+          x.classList.remove("w3-hide");
+          x.classList.add("w3-show");
+          arrow.textContent = "▲";
+        }
+      }
+    </script>
+  </body>
 </html>
