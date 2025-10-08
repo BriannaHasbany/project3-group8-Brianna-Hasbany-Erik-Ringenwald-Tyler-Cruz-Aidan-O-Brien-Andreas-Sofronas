@@ -1,208 +1,553 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
-   <title>Collision and Body Work</title>
-  <style>
-    h1 {
-      font-family: "Arial Black", sans-serif;
-      font-weight: 900;
-      letter-spacing: 1px;
-    }
-
-    h2, h3, h4, h5, h6 {
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    }  
-    
-    body {
-      font-family: Tahoma, "Trebuchet MS", sans-serif;
-      margin: 0;
-      background-color: beige;
-    }
-  
-    header {
-      background-image: url("images/avHeader.jpg"); 
-      background-position: center;
-      height: 200px; 
-      position: relative;
-      color: white;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
-      z-index: 1;
-    }
-
-    header h1 {
-      font-family:"Arial Black", sans-serif;
-      font-weight: 900;
-      letter-spacing: 2px;
-      margin: 0;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -100%);
-      font-size: 40px;
-    }
-
-    .hamburger {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      background: rgba(0,0,0,0.5);
-      color: white;
-    }
-
-    /* Overlay */
-    #myOverlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0,0,0,0.6);
-      z-index: 999;
-      display: none;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-
-    #myOverlay.show {
-      display: block;
-      opacity: 1;
-    }
-
-    /* Sidebar */
-    #mySidebar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 260px;
-      background: white;
-      z-index: 1000;
-      transform: translateX(-100%);
-      transition: transform 0.3s ease;
-    }
-
-    #mySidebar.show {
-      transform: translateX(0);
-    }
-
-    .close-btn {
-      font-size: 14px;
-      padding: 6px 10px;
-    }
-  </style>
-</head>
-<body style="display: flex; flex-direction: column; min-height: 100vh; margin: 0;">
-
-  <!-- Header with image background -->
-  <header class="w3-display-container">
-    <button class="w3-button w3-xlarge hamburger" onclick="w3_open()">&#9776;</button>
-    <h1>Collision & Body Work</h1>
-  </header>
-
-  <!-- Sidebar -->
-  <div class="w3-sidebar w3-bar-block" id="mySidebar">
-    <div class="w3-container w3-center" style="padding:16px">
-      <img src="images/av-logo.png" alt="Company Logo" style="width:200px;max-width:100%">
-    </div>
-    <hr>
-    <button class="w3-bar-item w3-button close-btn w3-right" onclick="w3_close()">✕ Close</button>
-    <br><br>
-    <a href="index.html" class="w3-bar-item w3-button w3-hover-blue">Home</a>
-    <a href="avWhoWeAre.html" class="w3-bar-item w3-button w3-hover-blue">About Us</a>
-    <button class="w3-button w3-block w3-left-align" onclick="toggleAccordion('acc2', this)">
-      Services <span class="arrow">▼</span>
-    </button>
-    <div id="acc2" class="w3-hide w3-white w3-card">
-      <a href="avCollisionRepairs.html" class="w3-bar-item w3-button w3-hover-blue">Collision & Body Work</a>
-      <a href="avMaintenence.html" class="w3-bar-item w3-button w3-hover-blue">Maintenance & Routine Services</a>
-      <a href="avAutomotive.html" class="w3-bar-item w3-button w3-hover-blue">Mechanical & Performance</a>
-      <a href="avEstimates.html" class="w3-bar-item w3-button w3-hover-blue">Estimates & Records</a>
-    </div>
-    <button class="w3-button w3-block w3-left-align" onclick="toggleAccordion('acc3', this)">
-      Our Work <span class="arrow">▼</span>
-    </button>
-    <div id="acc3" class="w3-hide w3-white w3-card">
-      <a href="avPhotoGallery.html" class="w3-bar-item w3-button w3-hover-blue">Photo Gallery</a>
-      <a href="avReview.html" class="w3-bar-item w3-button w3-hover-blue">Reviews & Testimonials</a>
-    </div>
-    <a href="avCarTalk.html" class="w3-bar-item w3-button w3-hover-blue">Our Blog: Car Talk</a>
-    <a href="avContactJoin.html" class="w3-bar-item w3-button w3-hover-blue">Contact Information</a>
-  </div>
-
-  <!-- Overlay -->
-  <div onclick="w3_close()" id="myOverlay"></div>
-
-  <!-- Main content -->
-  <main class="w3-container" style="flex: 1;">
-   
-  </main>
-    
-
-<!-- Footer -->
-<footer style="background-color: #f2f2f2; color: #333; padding: 20px 40px; text-align: left;">
-  <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;">
-
-     <!-- Left: Contact info -->
-    <div style="flex: 1; min-width: 200px;">
-      <p>
-        <strong>Address:</strong>  2350 Turnpike St, North Andover, MA 01845<br>
-        <strong>Phone:</strong>  (978) 975-0957<br>
-        <strong>Email:</strong> <a href="mailto:avrepairinc@gmail.com">avrepairinc@gmail.com</a>
-      </p>
-    </div>
-
-    <!-- Center: Company Logo -->
-    <div style="flex: 0 0 auto; text-align: center;">
-      <img src="images/av-logo.png" alt="Company Logo" style="height: 100px; max-width: 300%;">
-    </div>
-
-     <!-- Right: Facebook + Join Us -->
-    <div style="flex: 1; min-width: 200px; text-align: right; display: flex; justify-content: flex-end; gap: 10px;">
-      <!-- Facebook button -->
-      <a href="https://www.facebook.com/groups/1889685858011404/" target="_blank" style="text-decoration: none;">
-        <button class="w3-button" style="padding: 5px 10px; display: flex; align-items: center; gap: 5px;">
-          <img src="images/facebook-circular-logo.png" alt="Facebook" style="height: 24px; width: 24px;">
-          Visit Facebook
-        </button>
-      </a>
-
-      <!-- Join Us button -->
-      <a href="avContactJoin.html" style="text-decoration: none;">
-        <button class="w3-button w3-black">Join Us</button>
-      </a>
-    </div>
-  </div>
-</footer>
-
-
-  <!-- JavaScript-->
-  <script>
-    function w3_open() {
-      document.getElementById("mySidebar").classList.add("show");
-      document.getElementById("myOverlay").classList.add("show");
-    }
-
-    function w3_close() {
-      document.getElementById("mySidebar").classList.remove("show");
-      document.getElementById("myOverlay").classList.remove("show");
-    }
-
-    function toggleAccordion(id, btn) {
-      var x = document.getElementById(id);
-      var arrow = btn.querySelector(".arrow");
-      if (x.classList.contains("w3-show")) {
-        x.classList.remove("w3-show");
-        x.classList.add("w3-hide");
-        arrow.textContent = "▼";
-      } else {
-        x.classList.remove("w3-hide");
-        x.classList.add("w3-show");
-        arrow.textContent = "▲";
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css" />
+    <title>Collision and Body Work</title>
+    <style>
+      h1 {
+        font-family: "Arial Black", sans-serif;
+        font-weight: 900;
+        letter-spacing: 1px;
       }
-    }
-  </script>
-</body>
+
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        font-family: Tahoma, "Trebuchet MS", sans-serif;
+        margin: 0;
+        background-color: beige;
+      }
+
+      header {
+        background-image: url("images/avHeader.jpg");
+        background-position: center;
+        height: 200px;
+        position: relative;
+        color: white;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+        z-index: 1;
+      }
+
+      header h1 {
+        font-family: "Arial Black", sans-serif;
+        font-weight: 900;
+        letter-spacing: 2px;
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -100%);
+        font-size: 40px;
+      }
+
+      .hamburger {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        background: rgba(0, 0, 0, 0.5);
+        color: white;
+      }
+
+      /* Overlay */
+      #myOverlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+        z-index: 999;
+        display: none;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      #myOverlay.show {
+        display: block;
+        opacity: 1;
+      }
+
+      /* Sidebar */
+      #mySidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 260px;
+        background: white;
+        z-index: 1000;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+      }
+
+      #mySidebar.show {
+        transform: translateX(0);
+      }
+
+      .close-btn {
+        font-size: 14px;
+        padding: 6px 10px;
+      }
+
+      /*Services Links*/
+      .service-links a {
+        text-decoration: none;
+        color: #b30000;
+        font-weight: bold;
+      }
+
+      .service-links a:hover {
+        text-decoration: underline;
+      }
+
+      .section-block {
+        margin-top: 80px;
+        padding: 40px;
+        background-color: #fffaf0;
+        border-radius: 10px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .section-block h3 {
+        color: #b30000;
+        font-size: 24px;
+        margin-bottom: 10px;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
+  </head>
+  <body
+    style="display: flex; flex-direction: column; min-height: 100vh; margin: 0"
+  >
+    <!-- Header with image background -->
+    <header class="w3-display-container">
+      <button class="w3-button w3-xlarge hamburger" onclick="w3_open()">
+        &#9776;
+      </button>
+      <h1>Collision & Body Work</h1>
+    </header>
+
+    <!-- Sidebar -->
+    <div class="w3-sidebar w3-bar-block" id="mySidebar">
+      <div class="w3-container w3-center" style="padding: 16px">
+        <img
+          src="images/av-logo.png"
+          alt="Company Logo"
+          style="width: 200px; max-width: 100%"
+        />
+      </div>
+      <hr />
+      <button
+        class="w3-bar-item w3-button close-btn w3-right"
+        onclick="w3_close()"
+      >
+        ✕ Close
+      </button>
+      <br /><br />
+      <a href="index.html" class="w3-bar-item w3-button w3-hover-blue">Home</a>
+      <a href="avWhoWeAre.html" class="w3-bar-item w3-button w3-hover-blue"
+        >About Us</a
+      >
+      <button
+        class="w3-button w3-block w3-left-align"
+        onclick="toggleAccordion('acc2', this)"
+      >
+        Services <span class="arrow">▼</span>
+      </button>
+      <div id="acc2" class="w3-hide w3-white w3-card">
+        <a
+          href="avCollisionRepairs.html"
+          class="w3-bar-item w3-button w3-hover-blue"
+          >Collision & Body Work</a
+        >
+        <a href="avMaintenence.html" class="w3-bar-item w3-button w3-hover-blue"
+          >Maintenance & Routine Services</a
+        >
+        <a href="avAutomotive.html" class="w3-bar-item w3-button w3-hover-blue"
+          >Mechanical & Performance</a
+        >
+        <a href="avEstimates.html" class="w3-bar-item w3-button w3-hover-blue"
+          >Estimates & Records</a
+        >
+      </div>
+      <button
+        class="w3-button w3-block w3-left-align"
+        onclick="toggleAccordion('acc3', this)"
+      >
+        Our Work <span class="arrow">▼</span>
+      </button>
+      <div id="acc3" class="w3-hide w3-white w3-card">
+        <a
+          href="avPhotoGallery.html"
+          class="w3-bar-item w3-button w3-hover-blue"
+          >Photo Gallery</a
+        >
+        <a href="avReview.html" class="w3-bar-item w3-button w3-hover-blue"
+          >Reviews & Testimonials</a
+        >
+      </div>
+      <a href="avCarTalk.html" class="w3-bar-item w3-button w3-hover-blue"
+        >Our Blog: Car Talk</a
+      >
+      <a href="avContactJoin.html" class="w3-bar-item w3-button w3-hover-blue"
+        >Contact Information</a
+      >
+    </div>
+
+    <!-- Overlay -->
+    <div onclick="w3_close()" id="myOverlay"></div>
+
+    <!-- Main content -->
+    <main class="w3-container" style="flex: 1; padding: 40px 20px">
+      <h2 class="w3-center" style="font-size: 36px; font-weight: 800">
+        Collision & Body Work Services
+      </h2>
+      <p class="w3-center" style="font-size: 18px">
+        Select a service to learn more:
+      </p>
+
+      <ul
+        class="w3-ul w3-card-4 w3-padding service-links"
+        style="
+          max-width: 500px;
+          margin: 0 auto;
+          background-color: white;
+          border-radius: 8px;
+        "
+      >
+        <li><a href="#insured">Insured Collision Repairs</a></li>
+        <li><a href="#autobody">Auto Body Repair</a></li>
+        <li><a href="#paint">Paint Services</a></li>
+        <li><a href="#frame">Frame and Suspension Repair</a></li>
+        <li><a href="#rust">Rust Repair</a></li>
+        <li><a href="#restoration">Restoration</a></li>
+      </ul>
+
+      <!-- Service sections -->
+      <div id="insured" class="section-block" style="margin-top: 50px">
+        <h3>Insured Collision Repairs</h3>
+
+        <blockquote
+          style="
+            font-style: italic;
+            background-color: #f9f9f9;
+            border-left: 5px solid #b30000;
+            padding: 15px 20px;
+            margin: 20px 0;
+          "
+        >
+          “No appraiser, insurer, or insurance representative shall refer a
+          claimant to or away from any specific repair shop.”
+          <br />– Commonwealth of MA Regulation 212 2.0.4
+        </blockquote>
+
+        <p>
+          <strong>Your repair shop is your choice.</strong> Insurance companies
+          cannot legally require you to use their preferred body shop or
+          discourage you from choosing another. It’s your vehicle — you decide
+          who repairs it.
+        </p>
+
+        <p>
+          Unfortunately, some insurance representatives use misleading tactics
+          to cut costs. At <strong>AV Repair</strong>, we stand by your right to
+          a safe, high-quality repair. We’ve been serving our community for over
+          25 years and work directly with your insurer to make the process
+          hassle-free.
+        </p>
+
+        <h4 style="margin-top: 25px; color: #b30000">
+          Your Rights in Massachusetts
+        </h4>
+        <ul style="line-height: 1.8; margin-left: 20px">
+          <li>
+            Choose any licensed repair shop — not just one your insurer
+            recommends.
+          </li>
+          <li>Have your vehicle inspected at any location you select.</li>
+          <li>
+            Get repairs that restore your car to its pre-accident condition.
+          </li>
+          <li>Expect your insurer to negotiate in good faith.</li>
+        </ul>
+
+        <p
+          style="
+            font-weight: bold;
+            font-size: 18px;
+            color: #b30000;
+            margin-top: 20px;
+          "
+        >
+          Remember: Your Car, Your Choice. Choose <strong>AV Repair</strong> —
+          your trusted, licensed collision repair shop.
+        </p>
+      </div>
+
+      <div id="auto-body-repair" class="section-block" style="margin-top: 50px">
+        <h3>Auto Body Repair</h3>
+
+        <p>
+          Choosing a
+          <strong>trained and licensed collision repair facility</strong>
+          ensures your vehicle is repaired to the
+          <strong>strict safety and quality standards</strong> set by
+          manufacturers. At <strong>AV Repair</strong>, our technicians are
+          highly skilled professionals who work together to perform
+          <strong>safe, complete, and efficient repairs</strong>.
+        </p>
+
+        <p>
+          Our experts understand when parts can be repaired and when they must
+          be replaced — saving you time, reducing unexpected costs, and
+          preventing surprises on your final bill.
+        </p>
+
+        <p>
+          We are <strong>committed to continuous training</strong> in the latest
+          collision repair technologies and materials, ensuring your vehicle
+          receives manufacturer-approved service.
+        </p>
+
+        <p>
+          AV Repair’s certified technicians have the
+          <strong>highest level of training</strong> and extensive experience
+          repairing <strong>all makes and models</strong>. They have access to
+          manufacturer-specific repair data and specialized knowledge of the
+          materials your vehicle is built with.
+        </p>
+      </div>
+
+      <div id="paint" class="section-block" style="margin-top: 50px">
+        <h3>Paint Services</h3>
+
+        <p>
+          <strong>AV Repair</strong> offers a full range of painting services —
+          from small scratch repair to complete vehicle refinishing. Our
+          <strong>specially trained technicians</strong> use an in-house paint
+          mixing system to ensure every coating is applied with precision and
+          care.
+        </p>
+
+        <p>
+          We use an <strong>online paint code retrieval system</strong> to match
+          your vehicle’s exact color formula, mixing paint to
+          <strong>fraction-of-an-ounce accuracy</strong>. This process reduces
+          waste, protects the environment, and ensures you only pay for what’s
+          used.
+        </p>
+
+        <p>
+          To achieve a flawless, factory-level finish, our team starts with
+          high-quality <strong>primers applied to bare metal</strong>, then
+          hand-sands and inspects every surface for imperfections. This careful
+          preparation guarantees a smooth foundation for the sealer, color, and
+          clear coats—restoring your vehicle’s original shine.
+        </p>
+      </div>
+
+      <div id="frame" class="section-block" style="margin-top: 50px">
+        <h3>Frame & Suspension Repair</h3>
+
+        <p>
+          Structural repairs are among the most
+          <strong>technical and precise</strong> services in collision
+          repair—your vehicle’s frame is its foundation for safety, durability,
+          and performance.
+        </p>
+
+        <p>
+          <strong>AV Repair</strong> uses manufacturer-specific build data and
+          advanced diagnostic equipment to identify and correct structural
+          damage according to <strong>factory specifications</strong>.
+        </p>
+
+        <p>
+          Our trained technicians restore your vehicle’s frame and suspension
+          systems to pre-accident condition, ensuring
+          <strong>proper alignment, safety, and stability</strong> on the road.
+        </p>
+      </div>
+
+      <div id="rust" class="section-block" style="margin-top: 50px">
+        <h3>Rust Repair</h3>
+
+        <p>
+          For over <strong>30 years</strong>, AV Repair has restored countless
+          cars and trucks—often bringing vehicles back from “junkyard-ready” to
+          <strong>roadworthy condition</strong> at a budget-friendly price.
+        </p>
+
+        <p>
+          Living in <strong>New England’s salty environment</strong> means rust
+          is inevitable—from ocean spray to winter road salt. That’s why
+          prevention and timely repair are key to protecting your vehicle’s
+          frame, panels, and body.
+        </p>
+
+        <p>
+          <strong>Our experts specialize</strong> in removing rust buildup,
+          repairing damage, and preventing future corrosion. Whether it’s a
+          small spot or extensive rust, we restore your vehicle’s appearance and
+          structural integrity.
+        </p>
+
+        <p>
+          Don’t wait for rust to spread—<strong>AV Repair’s technicians</strong>
+          use proven techniques and quality materials to ensure your vehicle
+          looks and performs its best for years to come.
+        </p>
+      </div>
+
+      <div id="restoration" class="section-block" style="margin-top: 50px">
+        <h3>Restoration</h3>
+
+        <p>
+          Restoring a classic car to
+          <strong>period-correct condition</strong> comes with unique
+          challenges. From vintage Cadillacs and Lincolns to Mercedes, VW, and
+          Rolls Royce, projects often involve undoing decades of subpar repairs.
+          Parts can be hard to find or no longer available—but
+          <strong>AV Repair has the experience and resources</strong> to restore
+          your vehicle to driver-quality or Concours condition.
+        </p>
+
+        <p>
+          We begin with a <strong>complete disassembly</strong> during frame-off
+          restorations when needed, uncovering all potential problem areas. Our
+          extensive network of suppliers allows us to track down rare parts,
+          from emblems and hood ornaments to trim pieces. If parts can’t be
+          found, we have the tools and expertise to fabricate or restore them,
+          from chrome plating bumpers to repairing wheel spokes on a Model T.
+        </p>
+
+        <p>
+          While we specialize in complete restorations, we also offer
+          stand-alone services such as
+          <strong
+            >metal work, custom paint, suspension repair, engine rebuilds, and
+            electrical work</strong
+          >. AV Repair can help get your classic back on the road, looking and
+          performing as it was meant to.
+        </p>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer
+      style="
+        background-color: #f2f2f2;
+        color: #333;
+        padding: 20px 40px;
+        text-align: left;
+      "
+    >
+      <div
+        style="
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          flex-wrap: wrap;
+        "
+      >
+        <!-- Left: Contact info -->
+        <div style="flex: 1; min-width: 200px">
+          <p>
+            <strong>Address:</strong> 2350 Turnpike St, North Andover, MA
+            01845<br />
+            <strong>Phone:</strong> (978) 975-0957<br />
+            <strong>Email:</strong>
+            <a href="mailto:avrepairinc@gmail.com">avrepairinc@gmail.com</a>
+          </p>
+        </div>
+
+        <!-- Center: Company Logo -->
+        <div style="flex: 0 0 auto; text-align: center">
+          <img
+            src="images/av-logo.png"
+            alt="Company Logo"
+            style="height: 100px; max-width: 300%"
+          />
+        </div>
+
+        <!-- Right: Facebook + Join Us -->
+        <div
+          style="
+            flex: 1;
+            min-width: 200px;
+            text-align: right;
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+          "
+        >
+          <!-- Facebook button -->
+          <a
+            href="https://www.facebook.com/groups/1889685858011404/"
+            target="_blank"
+            style="text-decoration: none"
+          >
+            <button
+              class="w3-button"
+              style="
+                padding: 5px 10px;
+                display: flex;
+                align-items: center;
+                gap: 5px;
+              "
+            >
+              <img
+                src="images/facebook-circular-logo.png"
+                alt="Facebook"
+                style="height: 24px; width: 24px"
+              />
+              Visit Facebook
+            </button>
+          </a>
+
+          <!-- Join Us button -->
+          <a href="avContactJoin.html" style="text-decoration: none">
+            <button class="w3-button w3-black">Join Us</button>
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript-->
+    <script>
+      function w3_open() {
+        document.getElementById("mySidebar").classList.add("show");
+        document.getElementById("myOverlay").classList.add("show");
+      }
+
+      function w3_close() {
+        document.getElementById("mySidebar").classList.remove("show");
+        document.getElementById("myOverlay").classList.remove("show");
+      }
+
+      function toggleAccordion(id, btn) {
+        var x = document.getElementById(id);
+        var arrow = btn.querySelector(".arrow");
+        if (x.classList.contains("w3-show")) {
+          x.classList.remove("w3-show");
+          x.classList.add("w3-hide");
+          arrow.textContent = "▼";
+        } else {
+          x.classList.remove("w3-hide");
+          x.classList.add("w3-show");
+          arrow.textContent = "▲";
+        }
+      }
+    </script>
+  </body>
 </html>

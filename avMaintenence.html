@@ -42,6 +42,8 @@
       left: 50%;
       transform: translate(-50%, -100%);
       font-size: 40px;
+      text-align: center;
+      width: 90%;
     }
 
     .hamburger {
@@ -92,6 +94,34 @@
       font-size: 14px;
       padding: 6px 10px;
     }
+
+     /*Services Links*/
+      .service-links a {
+        text-decoration: none;
+        color: #b30000;
+        font-weight: bold;
+      }
+
+      .service-links a:hover {
+        text-decoration: underline;
+      }
+
+      .section-block {
+        margin-top: 80px;
+        padding: 40px;
+        background-color: #fffaf0;
+        border-radius: 10px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .section-block h3 {
+        color: #b30000;
+        font-size: 24px;
+        margin-bottom: 10px;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
   </style>
 </head>
 <body style="display: flex; flex-direction: column; min-height: 100vh; margin: 0;">
@@ -136,9 +166,47 @@
   <div onclick="w3_close()" id="myOverlay"></div>
 
   <!-- Main content -->
-  <main class="w3-container" style="flex: 1;">
-   
-  </main>
+  <main class="w3-container" style="flex: 1; padding: 40px 20px">
+      <h2 class="w3-center" style="font-size: 36px; font-weight: 800">
+       Maintenance & Routine Services
+      </h2>
+      <p class="w3-center" style="font-size: 18px">
+        Select a service to learn more:
+      </p>
+
+      <ul
+        class="w3-ul w3-card-4 w3-padding service-links"
+        style="
+          max-width: 500px;
+          margin: 0 auto;
+          background-color: white;
+          border-radius: 8px;
+        "
+      >
+        <li><a href="#oil">Oil & Fluid Maintenance</a></li>
+        <li><a href="#tires">Tires (general)</a></li>
+        <li><a href="#rotation">Tire Rotation & Balancing</a></li>
+        <li><a href="#brake">Brake Repair</a></li>
+      </ul>
+
+      <!-- Service sections -->
+      <div id="oil" class="section-block" style="margin-top: 50px">
+        <h3>Oil & Fluid Maintenance</h3>
+      </div>
+
+      <div id="tires" class="section-block" style="margin-top: 50px">
+        <h3>Tires (general)</h3>
+      </div>
+
+      <div id="rotation" class="section-block" style="margin-top: 50px">
+       <h3>Tire Rotation & Balancing</h3>
+      </div>
+
+      <div id="brake" class="section-block" style="margin-top: 50px">
+         <h3>Brake Repair</h3>
+      </div>
+    </main>
+
     
 
 <!-- Footer -->

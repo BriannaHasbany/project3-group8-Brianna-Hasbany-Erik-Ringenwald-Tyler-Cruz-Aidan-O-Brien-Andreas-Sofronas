@@ -1,398 +1,695 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
-  <style>
-    h1 {
-      font-family: "Arial Black", sans-serif;
-      font-weight: 900;
-      letter-spacing: 1px;
-    }
-
-    h2, h3, h4, h5, h6 {
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    }  
-    
-    body {
-      font-family: Tahoma, "Trebuchet MS", sans-serif;
-      margin: 0;
-      background-color: beige;
-    }
-  
-    header {
-      background-image: url("images/avHeader.jpg"); 
-      background-position: center;
-      height: 200px; 
-      position: relative;
-      color: white;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
-      z-index: 1;
-    }
-
-    header h1 {
-      font-family:"Arial Black", sans-serif;
-      font-weight: 900;
-      letter-spacing: 2px;
-      margin: 0;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -100%);
-      font-size: 40px;
-    }
-
-    .hamburger {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      background: rgba(0,0,0,0.5);
-      color: white;
-    }
-
-    /* Overlay */
-    #myOverlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0,0,0,0.6);
-      z-index: 999;
-      display: none;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-
-    #myOverlay.show {
-      display: block;
-      opacity: 1;
-    }
-
-    /* Sidebar */
-    #mySidebar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 260px;
-      background: white;
-      z-index: 1000;
-      transform: translateX(-100%);
-      transition: transform 0.3s ease;
-    }
-
-    #mySidebar.show {
-      transform: translateX(0);
-    }
-
-    .close-btn {
-      font-size: 14px;
-      padding: 6px 10px;
-    }
-  </style>
-  <title>Home</title>
-</head>
-<body style="display: flex; flex-direction: column; min-height: 100vh; margin: 0;">
-
-  <!-- Header with image background -->
-  <header class="w3-display-container">
-    <button class="w3-button w3-xlarge hamburger" onclick="w3_open()">&#9776;</button>
-    <h1>AV Repair Inc </h1> 
-  </header>
-
-  <!-- Sidebar -->
-  <div class="w3-sidebar w3-bar-block" id="mySidebar">
-    <div class="w3-container w3-center" style="padding:16px">
-      <img src="images/av-logo.png" alt="Company Logo" style="width:200px;max-width:100%">
-    </div>
-    <hr>
-    <button class="w3-bar-item w3-button close-btn w3-right" onclick="w3_close()">✕ Close</button>
-    <br><br>
-    <a href="index.html" class="w3-bar-item w3-button w3-hover-blue">Home</a>
-    <a href="avWhoWeAre.html" class="w3-bar-item w3-button w3-hover-blue">About Us</a>
-    <button class="w3-button w3-block w3-left-align" onclick="toggleAccordion('acc2', this)">
-      Services <span class="arrow">▼</span>
-    </button>
-    <div id="acc2" class="w3-hide w3-white w3-card">
-      <a href="avCollisionRepairs.html" class="w3-bar-item w3-button w3-hover-blue">Collision & Body Work</a>
-      <a href="avMaintenence.html" class="w3-bar-item w3-button w3-hover-blue">Maintenance & Routine Services</a>
-      <a href="avAutomotive.html" class="w3-bar-item w3-button w3-hover-blue">Mechanical & Performance</a>
-      <a href="avEstimates.html" class="w3-bar-item w3-button w3-hover-blue">Estimates & Records</a>
-    </div>
-    <button class="w3-button w3-block w3-left-align" onclick="toggleAccordion('acc3', this)">
-      Our Work <span class="arrow">▼</span>
-    </button>
-    <div id="acc3" class="w3-hide w3-white w3-card">
-      <a href="avPhotoGallery.html" class="w3-bar-item w3-button w3-hover-blue">Photo Gallery</a>
-      <a href="avReview.html" class="w3-bar-item w3-button w3-hover-blue">Reviews & Testimonials</a>
-    </div>
-    <a href="avCarTalk.html" class="w3-bar-item w3-button w3-hover-blue">Our Blog: Car Talk</a>
-    <a href="avContactJoin.html" class="w3-bar-item w3-button w3-hover-blue">Contact Information</a>
-  </div>
-
-  <!-- Overlay -->
-  <div onclick="w3_close()" id="myOverlay"></div>
-
-  <!-- Main content -->
-  <main class="w3-container" style="flex: 1;">
-   
-    <div class="w3-panel w3-center">
-      <p class="w3-xxlarge w3-serif w3-border-top w3-border-bottom w3-border-black">
-      <i><b>Integrity. Experience. Value. </b> </i><br>
-      <i><b>We do it right, We do it here, We do it for you.</b></i></p>
-    </div>
-
-  <div class="w3-container " style="display: flex; align-items: center; justify-content: center; gap: 60px; flex-wrap: wrap; padding: 80px 40px;">
-  
-    <!-- Left: Large Circular Image -->
-    <img src="images/homeCar.webp" alt="Our Team" 
-        class="w3-circle w3-card" 
-        style="width: 300px; height: 300px; object-fit: cover; flex-shrink: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
-
-    <!-- Right: Large Text Block -->
-    <div style="max-width: 600px; text-align: left;">
-      <h2 style="font-size: 42px; font-weight: 800; margin-bottom: 20px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; text-align: center;">
-       AV Repair is a Massachusetts Licensed and Bonded Repair Shop
-      </h2>
-      <p style="font-size: 20px; line-height: 1.6;">
-        At <strong>AV Repair Inc</strong>, we’re here during these trying times, 
-        to perform the repairs or service your car needs and 
-        <strong>we’ll pick up your car from your home or workplace  and deliver it back to you.</strong>
-      </p>
-    </div>
-
-<!-- ASE Certification Section -->
-<div style="background-color: #f2f2f2; width: 100%; padding: 80px 0;">
-  <div class="w3-row-padding" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; max-width: 1400px; margin: 0 auto; padding: 0 40px;">
-
-    <!-- ASE Logo -->
-    <div class="w3-half w3-center" style="min-width: 350px;">
-      <img src="images/ase-logo.png" alt="ASE Certified" 
-           style="max-width: 450px; width: 100%; height: auto; margin-bottom: 30px;">
-    </div>
-
-    <!-- ASE Text Description -->
-    <div class="w3-half" style="min-width: 350px; text-align: left;">
-      <h2 style="font-size: 48px; font-weight: 800; margin-bottom: 15px; color: #222;">
-        What is ASE and Why is it Important?
-      </h2>
-
-      <p style="font-size: 20px; line-height: 1.7; margin-bottom: 25px;">
-        ASE, short for the <strong>National Institute for Automotive Service Excellence</strong>,
-        is an independent non-profit organization that works to improve the quality of vehicle
-        repair and service by testing and certifying automotive professionals — ensuring your
-        car is always in qualified hands.
-      </p>
-
-      <p style="font-size: 20px; margin-bottom: 10px;">
-        <strong>Our technicians hold seven ASE certifications:</strong>
-      </p>
-
-      <!-- ASE Certifications List -->
-      <ul style="font-size: 20px; line-height: 1.9; list-style-type: none; padding: 0;">
-        <li>✔ Engine Repair</li>
-        <li>✔ Manual Drive Train & Axles</li>
-        <li>✔ Suspension & Steering</li>
-        <li>✔ Brakes</li>
-        <li>✔ Electrical/Electronic Systems</li>
-        <li>✔ Heating & Air Conditioning</li>
-        <li>✔ Engine Performance</li>
-      </ul>
-    </div>
-
-  </div>
-</div>
-
-
-<!-- Services Table Section -->
-<div class="w3-container" style="width: 100%; padding: 80px 0;">
-  <div style="max-width: 1400px; margin: 0 auto; padding: 0 40px;">
-
-    <h2 style="font-size: 48px; font-weight: 800; margin-bottom: 30px; color: #222;">Our Services</h2>
-
-    <table class="w3-table-all w3-hoverable w3-card" style="width: 100%;">
-      <thead>
-        <tr class="w3-red">
-          <th style="font-size: 20px;">Service Category</th>
-          <th style="font-size: 20px;">What We Offer</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>Collision & Body Work</strong></td>
-          <td>
-            Insured Collision Repairs<br>
-            Auto Body Repair<br>
-            Paint Services<br>
-            Frame and Suspension Repair<br>
-            Rust Repair<br>
-            Restoration
-          </td>
-        </tr>
-        <tr>
-          <td><strong>Maintenance & Routine Services</strong></td>
-          <td>
-            Oil & Fluid Maintenance<br>
-            Tire Rotation & Balancing<br>
-            Brake Repair<br>
-            Tires
-          </td>
-        </tr>
-        <tr>
-          <td><strong>Mechanical & Performance</strong></td>
-          <td>
-            Automotive Technical & Mechanical Services<br>
-            Engine Tuning & Performance<br>
-            Exhaust Systems
-          </td>
-        </tr>
-        <tr>
-          <td><strong>Estimates & Records</strong></td>
-          <td>
-            Licensed Appraisal<br>
-            Free Written Repair Estimates<br>
-            Computerized Maintenance Records
-          </td>
-        </tr>
-      </tbody>
-    </table>
-
-  </div>
-</div>
-  </div>
-
-<!-- Services Carousel Section -->
-<div class="w3-container" style="background-color: #f2f2f2; width: 100%; padding: 80px 0;">
-  <div style="max-width: 1400px; margin: 0 auto; padding: 0 40px;">
-
-    <div class="w3-content w3-display-container" style="max-width: 1000px; margin: auto;">
-
-      <!-- Carousel Images -->
-      <div class="w3-display-container mySlides">
-        <img src="images/collision.png" style="width:100%; height: 400px; object-fit: cover;">
-        <div class="w3-container w3-center" style="margin-top: 15px;">
-          <a href="avCollisionRepairs.html"><button class="w3-button w3-red">Collision & Body Work</button></a>
-        </div>
-      </div>
-
-      <div class="w3-display-container mySlides" style="display:none">
-        <img src="images/maintenance.png" style="width:100%; height: 400px; object-fit: cover;">
-        <div class="w3-container w3-center" style="margin-top: 15px;">
-          <a href="avMaintenence.html"><button class="w3-button w3-red">Maintenance & Routine Services</button></a>
-        </div>
-      </div>
-
-      <div class="w3-display-container mySlides" style="display:none">
-        <img src="images/mechanical.png" style="width:100%; height: 400px; object-fit: cover;">
-        <div class="w3-container w3-center" style="margin-top: 15px;">
-          <a href="avAutomotive.html"><button class="w3-button w3-red">Mechanical & Performance</button></a>
-        </div>
-      </div>
-
-      <div class="w3-display-container mySlides" style="display:none">
-        <img src="images/estimates.png" style="width:100%; height: 400px; object-fit: cover;">
-        <div class="w3-container w3-center" style="margin-top: 15px;">
-          <a href="avEstimates.html"><button class="w3-button w3-red">Estimates & Records</button></a>
-        </div>
-      </div>
-
-      <!-- Navigation Buttons -->
-      <button class="w3-button w3-display-left w3-black" onclick="plusDivs(-1)">&#10094;</button>
-      <button class="w3-button w3-display-right w3-black" onclick="plusDivs(1)">&#10095;</button>
-    </div>
-
-  </div>
-</div>
-
- <div class="w3-panel w3-center">
-      <p class="w3-xxlarge w3-serif w3-border-top w3-border-bottom w3-border-black">
-      <i><b> The Best or Nothing At All </b> </i><br>
-    </div>
-  </main>
-    
-
-<!-- Footer -->
-<footer style="background-color: #f2f2f2; color: #333; padding: 20px 40px; text-align: left;">
-  <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;">
-
-    <!-- Left: Contact info -->
-    <div style="flex: 1; min-width: 200px;">
-      <p>
-        <strong>Address:</strong>  2350 Turnpike St, North Andover, MA 01845<br>
-        <strong>Phone:</strong>  (978) 975-0957<br>
-        <strong>Email:</strong> <a href="mailto:avrepairinc@gmail.com">avrepairinc@gmail.com</a>
-      </p>
-    </div>
-
-    <!-- Center: Company Logo -->
-    <div style="flex: 0 0 auto; text-align: center;">
-      <img src="images/av-logo.png" alt="Company Logo" style="height: 100px; max-width: 300%;">
-    </div>
-
-     <!-- Right: Facebook + Join Us -->
-    <div style="flex: 1; min-width: 200px; text-align: right; display: flex; justify-content: flex-end; gap: 10px;">
-      <!-- Facebook button -->
-      <a href="https://www.facebook.com/groups/1889685858011404/" target="_blank" style="text-decoration: none;">
-        <button class="w3-button" style="padding: 5px 10px; display: flex; align-items: center; gap: 5px;">
-          <img src="images/facebook-circular-logo.png" alt="Facebook" style="height: 24px; width: 24px;">
-          Visit Facebook
-        </button>
-      </a>
-
-      <!-- Join Us button -->
-      <a href="avContactJoin.html" style="text-decoration: none;">
-        <button class="w3-button w3-black">Join Us</button>
-      </a>
-    </div>
-  </div>
-</footer>
-
-
-  <!-- JavaScript-->
-  <script>
-    function w3_open() {
-      document.getElementById("mySidebar").classList.add("show");
-      document.getElementById("myOverlay").classList.add("show");
-    }
-
-    function w3_close() {
-      document.getElementById("mySidebar").classList.remove("show");
-      document.getElementById("myOverlay").classList.remove("show");
-    }
-
-    function toggleAccordion(id, btn) {
-      var x = document.getElementById(id);
-      var arrow = btn.querySelector(".arrow");
-      if (x.classList.contains("w3-show")) {
-        x.classList.remove("w3-show");
-        x.classList.add("w3-hide");
-        arrow.textContent = "▼";
-      } else {
-        x.classList.remove("w3-hide");
-        x.classList.add("w3-show");
-        arrow.textContent = "▲";
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css" />
+    <style>
+      h1 {
+        font-family: "Arial Black", sans-serif;
+        font-weight: 900;
+        letter-spacing: 1px;
       }
-    }
 
- var slideIndex = 0;
-showDivs(slideIndex);
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
 
-function plusDivs(n) {
-  showDivs(slideIndex += n);
-}
+      body {
+        font-family: Tahoma, "Trebuchet MS", sans-serif;
+        margin: 0;
+        background-color: beige;
+      }
 
-function showDivs(n) {
-  var i;
-  var x = document.getElementsByClassName("mySlides");
-  if (n >= x.length) { slideIndex = 0; }
-  if (n < 0) { slideIndex = x.length - 1; }
-  for (i = 0; i < x.length; i++) {
-    x[i].style.display = "none";
-  }
-  x[slideIndex].style.display = "block";
-}
-  </script>
-</body>
+      header {
+        background-image: url("images/avHeader.jpg");
+        background-position: center;
+        height: 200px;
+        position: relative;
+        color: white;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+        z-index: 1;
+      }
+
+      header h1 {
+        font-family: "Arial Black", sans-serif;
+        font-weight: 900;
+        letter-spacing: 2px;
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -100%);
+        font-size: 40px;
+      }
+
+      .hamburger {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        background: rgba(0, 0, 0, 0.5);
+        color: white;
+      }
+
+      /* Overlay */
+      #myOverlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+        z-index: 999;
+        display: none;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      #myOverlay.show {
+        display: block;
+        opacity: 1;
+      }
+
+      /* Sidebar */
+      #mySidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 260px;
+        background: white;
+        z-index: 1000;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+      }
+
+      #mySidebar.show {
+        transform: translateX(0);
+      }
+
+      .close-btn {
+        font-size: 14px;
+        padding: 6px 10px;
+      }
+    </style>
+    <title>Home</title>
+  </head>
+  <body
+    style="display: flex; flex-direction: column; min-height: 100vh; margin: 0"
+  >
+    <!-- Header with image background -->
+    <header class="w3-display-container">
+      <button class="w3-button w3-xlarge hamburger" onclick="w3_open()">
+        &#9776;
+      </button>
+      <h1>AV Repair Inc</h1>
+    </header>
+
+    <!-- Sidebar -->
+    <div class="w3-sidebar w3-bar-block" id="mySidebar">
+      <div class="w3-container w3-center" style="padding: 16px">
+        <img
+          src="images/av-logo.png"
+          alt="Company Logo"
+          style="width: 200px; max-width: 100%"
+        />
+      </div>
+      <hr />
+      <button
+        class="w3-bar-item w3-button close-btn w3-right"
+        onclick="w3_close()"
+      >
+        ✕ Close
+      </button>
+      <br /><br />
+      <a href="index.html" class="w3-bar-item w3-button w3-hover-blue">Home</a>
+      <a href="avWhoWeAre.html" class="w3-bar-item w3-button w3-hover-blue"
+        >About Us</a
+      >
+      <button
+        class="w3-button w3-block w3-left-align"
+        onclick="toggleAccordion('acc2', this)"
+      >
+        Services <span class="arrow">▼</span>
+      </button>
+      <div id="acc2" class="w3-hide w3-white w3-card">
+        <a
+          href="avCollisionRepairs.html"
+          class="w3-bar-item w3-button w3-hover-blue"
+          >Collision & Body Work</a
+        >
+        <a href="avMaintenence.html" class="w3-bar-item w3-button w3-hover-blue"
+          >Maintenance & Routine Services</a
+        >
+        <a href="avAutomotive.html" class="w3-bar-item w3-button w3-hover-blue"
+          >Mechanical & Performance</a
+        >
+        <a href="avEstimates.html" class="w3-bar-item w3-button w3-hover-blue"
+          >Estimates & Records</a
+        >
+      </div>
+      <button
+        class="w3-button w3-block w3-left-align"
+        onclick="toggleAccordion('acc3', this)"
+      >
+        Our Work <span class="arrow">▼</span>
+      </button>
+      <div id="acc3" class="w3-hide w3-white w3-card">
+        <a
+          href="avPhotoGallery.html"
+          class="w3-bar-item w3-button w3-hover-blue"
+          >Photo Gallery</a
+        >
+        <a href="avReview.html" class="w3-bar-item w3-button w3-hover-blue"
+          >Reviews & Testimonials</a
+        >
+      </div>
+      <a href="avCarTalk.html" class="w3-bar-item w3-button w3-hover-blue"
+        >Our Blog: Car Talk</a
+      >
+      <a href="avContactJoin.html" class="w3-bar-item w3-button w3-hover-blue"
+        >Contact Information</a
+      >
+    </div>
+
+    <!-- Overlay -->
+    <div onclick="w3_close()" id="myOverlay"></div>
+
+    <!-- Main content -->
+    <main class="w3-container" style="flex: 1">
+      <div class="w3-panel w3-center">
+        <p
+          class="w3-xxlarge w3-serif w3-border-top w3-border-bottom w3-border-black"
+        >
+          <i><b>Integrity. Experience. Value. </b> </i><br />
+          <i><b>We do it right, We do it here, We do it for you.</b></i>
+        </p>
+      </div>
+
+      <div
+        class="w3-container"
+        style="
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 60px;
+          flex-wrap: wrap;
+          padding: 80px 40px;
+        "
+      >
+        <!-- Left: Large Circular Image -->
+        <img
+          src="images/homeCar.webp"
+          alt="Our Team"
+          class="w3-circle w3-card"
+          style="
+            width: 400px;
+            height: 400px;
+            object-fit: cover;
+            flex-shrink: 0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+          "
+        />
+
+        <!-- Right: Large Text Block -->
+        <div style="max-width: 600px; text-align: left">
+          <h2
+            style="
+              font-size: 42px;
+              font-weight: 800;
+              margin-bottom: 20px;
+              font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+              text-align: center;
+            "
+          >
+            AV Repair is a Massachusetts Licensed and Bonded Repair Shop
+          </h2>
+          <p style="font-size: 20px; line-height: 1.6">
+            At <strong>AV Repair Inc</strong>, we’re here during these trying
+            times, to perform the repairs or service your car needs and
+            <strong
+              >we’ll pick up your car from your home or workplace and deliver it
+              back to you.</strong
+            >
+          </p>
+        </div>
+
+        <div
+          class="w3-container"
+          style="
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 60px;
+            flex-wrap: wrap;
+            padding: 80px 40px;
+          "
+        >
+          <!-- Left: Large Text Block -->
+          <div style="max-width: 600px; text-align: left">
+            <h2
+              style="
+                font-size: 42px;
+                font-weight: 800;
+                margin-bottom: 20px;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                text-align: center;
+              "
+            >
+            We Service All Vehicles
+            </h2>
+            <p style="font-size: 20px; line-height: 1.6; text-align: center">
+              We service cars and trucks of all ages — gasoline, diesel, and
+              electric — both domestic and foreign, including:
+            </p>
+
+            <ul
+              style="
+                columns: 2;
+                font-size: 18px;
+                line-height: 1.8;
+                list-style-type: none;
+                padding: 0;
+                text-align: center;
+              "
+            >
+              <li>✔ GM</li>
+              <li>✔ Chevrolet</li>
+              <li>✔ Buick</li>
+              <li>✔ Cadillac</li>
+              <li>✔ Pontiac</li>
+              <li>✔ Oldsmobile</li>
+              <li>✔ Ford</li>
+              <li>✔ Chrysler</li>
+              <li>✔ Dodge</li>
+              <li>✔ Plymouth</li>
+              <li>✔ BMW</li>
+              <li>✔ Mercedes</li>
+              <li>✔ Audi</li>
+              <li>✔ Volkswagen</li>
+              <li>✔ Porsche</li>
+              <li>✔ Fiat</li>
+              <li>✔ Volvo</li>
+              <li>✔ Saab</li>
+              <li>✔ Toyota</li>
+              <li>✔ Lexus</li>
+              <li>✔ Nissan</li>
+              <li>✔ Infiniti</li>
+              <li>✔ Honda</li>
+              <li>✔ Acura</li>
+              <li>✔ Subaru</li>
+              <li>✔ Mazda</li>
+              <li>✔ Hyundai</li>
+              <li>✔ Kia</li>
+              <li>✔ Jaguar</li>
+              <li>✔ Land Rover</li>
+              <li>✔ Range Rover</li>
+              <li>...and more!</li>
+            </ul>
+          </div>
+
+          <!-- Right: Large Circular Image -->
+          <img
+            src="images/homeCar2.jpg"
+            alt="Car Repair"
+            class="w3-circle w3-card"
+            style="
+              width: 500px;
+              height: 500px;
+              object-fit: cover;
+              flex-shrink: 0;
+              box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            "
+          />
+        </div>
+
+        <!-- ASE Certification Section -->
+        <div style="background-color: #f2f2f2; width: 100%; padding: 80px 0">
+          <div
+            class="w3-row-padding"
+            style="
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              flex-wrap: wrap;
+              max-width: 1400px;
+              margin: 0 auto;
+              padding: 0 40px;
+            "
+          >
+            <!-- ASE Logo -->
+            <div class="w3-half w3-center" style="min-width: 350px">
+              <img
+                src="images/ase-logo.png"
+                alt="ASE Certified"
+                style="
+                  max-width: 450px;
+                  width: 100%;
+                  height: auto;
+                  margin-bottom: 30px;
+                "
+              />
+            </div>
+
+            <!-- ASE Text Description -->
+            <div class="w3-half" style="min-width: 350px; text-align: left">
+              <h2
+                style="
+                  font-size: 48px;
+                  font-weight: 800;
+                  margin-bottom: 15px;
+                  color: #222;
+                "
+              >
+                What is ASE and Why is it Important?
+              </h2>
+
+              <p style="font-size: 20px; line-height: 1.7; margin-bottom: 25px">
+                ASE, short for the
+                <strong
+                  >National Institute for Automotive Service Excellence</strong
+                >, is an independent non-profit organization that works to
+                improve the quality of vehicle repair and service by testing and
+                certifying automotive professionals — ensuring your car is
+                always in qualified hands.
+              </p>
+
+              <p style="font-size: 20px; margin-bottom: 10px">
+                <strong>Our technicians hold seven ASE certifications:</strong>
+              </p>
+
+              <!-- ASE Certifications List -->
+              <ul
+                style="
+                  font-size: 20px;
+                  line-height: 1.9;
+                  list-style-type: none;
+                  padding: 0;
+                "
+              >
+                <li>✔ Engine Repair</li>
+                <li>✔ Manual Drive Train & Axles</li>
+                <li>✔ Suspension & Steering</li>
+                <li>✔ Brakes</li>
+                <li>✔ Electrical/Electronic Systems</li>
+                <li>✔ Heating & Air Conditioning</li>
+                <li>✔ Engine Performance</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Services Table Section -->
+        <div class="w3-container" style="width: 100%; padding: 80px 0">
+          <div style="max-width: 1400px; margin: 0 auto; padding: 0 40px">
+            <h2
+              style="
+                font-size: 48px;
+                font-weight: 800;
+                margin-bottom: 30px;
+                color: #222;
+              "
+            >
+              Our Services
+            </h2>
+
+            <table
+              class="w3-table-all w3-hoverable w3-card"
+              style="width: 100%"
+            >
+              <thead>
+                <tr class="w3-red">
+                  <th style="font-size: 20px">Service Category</th>
+                  <th style="font-size: 20px">What We Offer</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Collision & Body Work</strong></td>
+                  <td>
+                    Insured Collision Repairs<br />
+                    Auto Body Repair<br />
+                    Paint Services<br />
+                    Frame and Suspension Repair<br />
+                    Rust Repair<br />
+                    Restoration
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>Maintenance & Routine Services</strong></td>
+                  <td>
+                    Oil & Fluid Maintenance<br />
+                    Tire Rotation & Balancing<br />
+                    Brake Repair<br />
+                    Tires
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>Mechanical & Performance</strong></td>
+                  <td>
+                    Automotive Technical & Mechanical Services<br />
+                    Engine Tuning & Performance<br />
+                    Exhaust Systems
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>Estimates & Records</strong></td>
+                  <td>
+                    Licensed Appraisal<br />
+                    Free Written Repair Estimates<br />
+                    Computerized Maintenance Records
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Services Carousel Section -->
+      <div
+        class="w3-container"
+        style="background-color: #f2f2f2; width: 100%; padding: 80px 0"
+      >
+        <div style="max-width: 1400px; margin: 0 auto; padding: 0 40px">
+          <div
+            class="w3-content w3-display-container"
+            style="max-width: 1000px; margin: auto"
+          >
+            <!-- Carousel Images -->
+            <div class="w3-display-container mySlides">
+              <img
+                src="images/collision.png"
+                style="width: 100%; height: 400px; object-fit: cover"
+              />
+              <div class="w3-container w3-center" style="margin-top: 15px">
+                <a href="avCollisionRepairs.html"
+                  ><button class="w3-button w3-red">
+                    Collision & Body Work
+                  </button></a
+                >
+              </div>
+            </div>
+
+            <div class="w3-display-container mySlides" style="display: none">
+              <img
+                src="images/maintenance.png"
+                style="width: 100%; height: 400px; object-fit: cover"
+              />
+              <div class="w3-container w3-center" style="margin-top: 15px">
+                <a href="avMaintenence.html"
+                  ><button class="w3-button w3-red">
+                    Maintenance & Routine Services
+                  </button></a
+                >
+              </div>
+            </div>
+
+            <div class="w3-display-container mySlides" style="display: none">
+              <img
+                src="images/mechanical.png"
+                style="width: 100%; height: 400px; object-fit: cover"
+              />
+              <div class="w3-container w3-center" style="margin-top: 15px">
+                <a href="avAutomotive.html"
+                  ><button class="w3-button w3-red">
+                    Mechanical & Performance
+                  </button></a
+                >
+              </div>
+            </div>
+
+            <div class="w3-display-container mySlides" style="display: none">
+              <img
+                src="images/estimates.png"
+                style="width: 100%; height: 400px; object-fit: cover"
+              />
+              <div class="w3-container w3-center" style="margin-top: 15px">
+                <a href="avEstimates.html"
+                  ><button class="w3-button w3-red">
+                    Estimates & Records
+                  </button></a
+                >
+              </div>
+            </div>
+
+            <!-- Navigation Buttons -->
+            <button
+              class="w3-button w3-display-left w3-black"
+              onclick="plusDivs(-1)"
+            >
+              &#10094;
+            </button>
+            <button
+              class="w3-button w3-display-right w3-black"
+              onclick="plusDivs(1)"
+            >
+              &#10095;
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="w3-panel w3-center">
+        <p
+          class="w3-xxlarge w3-serif w3-border-top w3-border-bottom w3-border-black"
+        >
+          <i><b> The Best or Nothing At All </b> </i><br />
+        </p>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer
+      style="
+        background-color: #f2f2f2;
+        color: #333;
+        padding: 20px 40px;
+        text-align: left;
+      "
+    >
+      <div
+        style="
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          flex-wrap: wrap;
+        "
+      >
+        <!-- Left: Contact info -->
+        <div style="flex: 1; min-width: 200px">
+          <p>
+            <strong>Address:</strong> 2350 Turnpike St, North Andover, MA
+            01845<br />
+            <strong>Phone:</strong> (978) 975-0957<br />
+            <strong>Email:</strong>
+            <a href="mailto:avrepairinc@gmail.com">avrepairinc@gmail.com</a>
+          </p>
+        </div>
+
+        <!-- Center: Company Logo -->
+        <div style="flex: 0 0 auto; text-align: center">
+          <img
+            src="images/av-logo.png"
+            alt="Company Logo"
+            style="height: 100px; max-width: 300%"
+          />
+        </div>
+
+        <!-- Right: Facebook + Join Us -->
+        <div
+          style="
+            flex: 1;
+            min-width: 200px;
+            text-align: right;
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+          "
+        >
+          <!-- Facebook button -->
+          <a
+            href="https://www.facebook.com/groups/1889685858011404/"
+            target="_blank"
+            style="text-decoration: none"
+          >
+            <button
+              class="w3-button"
+              style="
+                padding: 5px 10px;
+                display: flex;
+                align-items: center;
+                gap: 5px;
+              "
+            >
+              <img
+                src="images/facebook-circular-logo.png"
+                alt="Facebook"
+                style="height: 24px; width: 24px"
+              />
+              Visit Facebook
+            </button>
+          </a>
+
+          <!-- Join Us button -->
+          <a href="avContactJoin.html" style="text-decoration: none">
+            <button class="w3-button w3-black">Join Us</button>
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript-->
+    <script>
+      function w3_open() {
+        document.getElementById("mySidebar").classList.add("show");
+        document.getElementById("myOverlay").classList.add("show");
+      }
+
+      function w3_close() {
+        document.getElementById("mySidebar").classList.remove("show");
+        document.getElementById("myOverlay").classList.remove("show");
+      }
+
+      function toggleAccordion(id, btn) {
+        var x = document.getElementById(id);
+        var arrow = btn.querySelector(".arrow");
+        if (x.classList.contains("w3-show")) {
+          x.classList.remove("w3-show");
+          x.classList.add("w3-hide");
+          arrow.textContent = "▼";
+        } else {
+          x.classList.remove("w3-hide");
+          x.classList.add("w3-show");
+          arrow.textContent = "▲";
+        }
+      }
+
+      var slideIndex = 0;
+      showDivs(slideIndex);
+
+      function plusDivs(n) {
+        showDivs((slideIndex += n));
+      }
+
+      function showDivs(n) {
+        var i;
+        var x = document.getElementsByClassName("mySlides");
+        if (n >= x.length) {
+          slideIndex = 0;
+        }
+        if (n < 0) {
+          slideIndex = x.length - 1;
+        }
+        for (i = 0; i < x.length; i++) {
+          x[i].style.display = "none";
+        }
+        x[slideIndex].style.display = "block";
+      }
+    </script>
+  </body>
 </html>
