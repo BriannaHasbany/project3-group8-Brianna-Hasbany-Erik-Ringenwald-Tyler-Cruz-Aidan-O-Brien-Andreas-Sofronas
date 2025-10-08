@@ -1,208 +1,399 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
-   <title>Mechanical and Performance</title>
-  <style>
-    h1 {
-      font-family: "Arial Black", sans-serif;
-      font-weight: 900;
-      letter-spacing: 1px;
-    }
-
-    h2, h3, h4, h5, h6 {
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    }  
-    
-    body {
-      font-family: Tahoma, "Trebuchet MS", sans-serif;
-      margin: 0;
-      background-color: beige;
-    }
-  
-    header {
-      background-image: url("images/avHeader.jpg"); 
-      background-position: center;
-      height: 200px; 
-      position: relative;
-      color: white;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
-      z-index: 1;
-    }
-
-    header h1 {
-      font-family:"Arial Black", sans-serif;
-      font-weight: 900;
-      letter-spacing: 2px;
-      margin: 0;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -100%);
-      font-size: 40px;
-    }
-
-    .hamburger {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      background: rgba(0,0,0,0.5);
-      color: white;
-    }
-
-    /* Overlay */
-    #myOverlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0,0,0,0.6);
-      z-index: 999;
-      display: none;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-
-    #myOverlay.show {
-      display: block;
-      opacity: 1;
-    }
-
-    /* Sidebar */
-    #mySidebar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 260px;
-      background: white;
-      z-index: 1000;
-      transform: translateX(-100%);
-      transition: transform 0.3s ease;
-    }
-
-    #mySidebar.show {
-      transform: translateX(0);
-    }
-
-    .close-btn {
-      font-size: 14px;
-      padding: 6px 10px;
-    }
-  </style>
-</head>
-<body style="display: flex; flex-direction: column; min-height: 100vh; margin: 0;">
-
-  <!-- Header with image background -->
-  <header class="w3-display-container">
-    <button class="w3-button w3-xlarge hamburger" onclick="w3_open()">&#9776;</button>
-    <h1>Mechanical and Performance</h1>
-  </header>
-
-  <!-- Sidebar -->
-  <div class="w3-sidebar w3-bar-block" id="mySidebar">
-    <div class="w3-container w3-center" style="padding:16px">
-      <img src="images/av-logo.png" alt="Company Logo" style="width:200px;max-width:100%">
-    </div>
-    <hr>
-    <button class="w3-bar-item w3-button close-btn w3-right" onclick="w3_close()">✕ Close</button>
-    <br><br>
-    <a href="index.html" class="w3-bar-item w3-button w3-hover-blue">Home</a>
-    <a href="avWhoWeAre.html" class="w3-bar-item w3-button w3-hover-blue">About Us</a>
-    <button class="w3-button w3-block w3-left-align" onclick="toggleAccordion('acc2', this)">
-      Services <span class="arrow">▼</span>
-    </button>
-    <div id="acc2" class="w3-hide w3-white w3-card">
-      <a href="avCollisionRepairs.html" class="w3-bar-item w3-button w3-hover-blue">Collision & Body Work</a>
-      <a href="avMaintenence.html" class="w3-bar-item w3-button w3-hover-blue">Maintenance & Routine Services</a>
-      <a href="avAutomotive.html" class="w3-bar-item w3-button w3-hover-blue">Mechanical & Performance</a>
-      <a href="avEstimates.html" class="w3-bar-item w3-button w3-hover-blue">Estimates & Records</a>
-    </div>
-    <button class="w3-button w3-block w3-left-align" onclick="toggleAccordion('acc3', this)">
-      Our Work <span class="arrow">▼</span>
-    </button>
-    <div id="acc3" class="w3-hide w3-white w3-card">
-      <a href="avPhotoGallery.html" class="w3-bar-item w3-button w3-hover-blue">Photo Gallery</a>
-      <a href="avReview.html" class="w3-bar-item w3-button w3-hover-blue">Reviews & Testimonials</a>
-    </div>
-    <a href="avCarTalk.html" class="w3-bar-item w3-button w3-hover-blue">Our Blog: Car Talk</a>
-    <a href="avContactJoin.html" class="w3-bar-item w3-button w3-hover-blue">Contact Information</a>
-  </div>
-
-  <!-- Overlay -->
-  <div onclick="w3_close()" id="myOverlay"></div>
-
-  <!-- Main content -->
-  <main class="w3-container" style="flex: 1;">
-   
-  </main>
-    
-
-<!-- Footer -->
-<footer style="background-color: #f2f2f2; color: #333; padding: 20px 40px; text-align: left;">
-  <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;">
-
-     <!-- Left: Contact info -->
-    <div style="flex: 1; min-width: 200px;">
-      <p>
-        <strong>Address:</strong>  2350 Turnpike St, North Andover, MA 01845<br>
-        <strong>Phone:</strong>  (978) 975-0957<br>
-        <strong>Email:</strong> <a href="mailto:avrepairinc@gmail.com">avrepairinc@gmail.com</a>
-      </p>
-    </div>
-
-    <!-- Center: Company Logo -->
-    <div style="flex: 0 0 auto; text-align: center;">
-      <img src="images/av-logo.png" alt="Company Logo" style="height: 100px; max-width: 300%;">
-    </div>
-
-     <!-- Right: Facebook + Join Us -->
-    <div style="flex: 1; min-width: 200px; text-align: right; display: flex; justify-content: flex-end; gap: 10px;">
-      <!-- Facebook button -->
-      <a href="https://www.facebook.com/groups/1889685858011404/" target="_blank" style="text-decoration: none;">
-        <button class="w3-button" style="padding: 5px 10px; display: flex; align-items: center; gap: 5px;">
-          <img src="images/facebook-circular-logo.png" alt="Facebook" style="height: 24px; width: 24px;">
-          Visit Facebook
-        </button>
-      </a>
-
-      <!-- Join Us button -->
-      <a href="avContactJoin.html" style="text-decoration: none;">
-        <button class="w3-button w3-black">Join Us</button>
-      </a>
-    </div>
-  </div>
-</footer>
-
-
-  <!-- JavaScript-->
-  <script>
-    function w3_open() {
-      document.getElementById("mySidebar").classList.add("show");
-      document.getElementById("myOverlay").classList.add("show");
-    }
-
-    function w3_close() {
-      document.getElementById("mySidebar").classList.remove("show");
-      document.getElementById("myOverlay").classList.remove("show");
-    }
-
-    function toggleAccordion(id, btn) {
-      var x = document.getElementById(id);
-      var arrow = btn.querySelector(".arrow");
-      if (x.classList.contains("w3-show")) {
-        x.classList.remove("w3-show");
-        x.classList.add("w3-hide");
-        arrow.textContent = "▼";
-      } else {
-        x.classList.remove("w3-hide");
-        x.classList.add("w3-show");
-        arrow.textContent = "▲";
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css" />
+    <title>Mechanical and Performance</title>
+    <style>
+      h1 {
+        font-family: "Arial Black", sans-serif;
+        font-weight: 900;
+        letter-spacing: 1px;
       }
-    }
-  </script>
-</body>
+
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        font-family: Tahoma, "Trebuchet MS", sans-serif;
+        margin: 0;
+        background-color: beige;
+      }
+
+      header {
+        background-image: url("images/avHeader.jpg");
+        background-position: center;
+        height: 200px;
+        position: relative;
+        color: white;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+        z-index: 1;
+      }
+
+      header h1 {
+        font-family: "Arial Black", sans-serif;
+        font-weight: 900;
+        letter-spacing: 2px;
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -100%);
+        font-size: 40px;
+      }
+
+      .hamburger {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        background: rgba(0, 0, 0, 0.5);
+        color: white;
+      }
+
+      /* Overlay */
+      #myOverlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+        z-index: 999;
+        display: none;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      #myOverlay.show {
+        display: block;
+        opacity: 1;
+      }
+
+      /* Sidebar */
+      #mySidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 260px;
+        background: white;
+        z-index: 1000;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+      }
+
+      #mySidebar.show {
+        transform: translateX(0);
+      }
+
+      .close-btn {
+        font-size: 14px;
+        padding: 6px 10px;
+      }
+    </style>
+  </head>
+  <body
+    style="display: flex; flex-direction: column; min-height: 100vh; margin: 0"
+  >
+    <!-- Header with image background -->
+    <header class="w3-display-container">
+      <button class="w3-button w3-xlarge hamburger" onclick="w3_open()">
+        &#9776;
+      </button>
+      <h1>Mechanical and Performance</h1>
+    </header>
+
+    <!-- Sidebar -->
+    <div class="w3-sidebar w3-bar-block" id="mySidebar">
+      <div class="w3-container w3-center" style="padding: 16px">
+        <img
+          src="images/av-logo.png"
+          alt="Company Logo"
+          style="width: 200px; max-width: 100%"
+        />
+      </div>
+      <hr />
+      <button
+        class="w3-bar-item w3-button close-btn w3-right"
+        onclick="w3_close()"
+      >
+        ✕ Close
+      </button>
+      <br /><br />
+      <a href="index.html" class="w3-bar-item w3-button w3-hover-blue">Home</a>
+      <a href="avWhoWeAre.html" class="w3-bar-item w3-button w3-hover-blue"
+        >About Us</a
+      >
+      <button
+        class="w3-button w3-block w3-left-align"
+        onclick="toggleAccordion('acc2', this)"
+      >
+        Services <span class="arrow">▼</span>
+      </button>
+      <div id="acc2" class="w3-hide w3-white w3-card">
+        <a
+          href="avCollisionRepairs.html"
+          class="w3-bar-item w3-button w3-hover-blue"
+          >Collision & Body Work</a
+        >
+        <a href="avMaintenence.html" class="w3-bar-item w3-button w3-hover-blue"
+          >Maintenance & Routine Services</a
+        >
+        <a href="avAutomotive.html" class="w3-bar-item w3-button w3-hover-blue"
+          >Mechanical & Performance</a
+        >
+        <a href="avEstimates.html" class="w3-bar-item w3-button w3-hover-blue"
+          >Estimates & Records</a
+        >
+      </div>
+      <button
+        class="w3-button w3-block w3-left-align"
+        onclick="toggleAccordion('acc3', this)"
+      >
+        Our Work <span class="arrow">▼</span>
+      </button>
+      <div id="acc3" class="w3-hide w3-white w3-card">
+        <a
+          href="avPhotoGallery.html"
+          class="w3-bar-item w3-button w3-hover-blue"
+          >Photo Gallery</a
+        >
+        <a href="avReview.html" class="w3-bar-item w3-button w3-hover-blue"
+          >Reviews & Testimonials</a
+        >
+      </div>
+      <a href="avCarTalk.html" class="w3-bar-item w3-button w3-hover-blue"
+        >Our Blog: Car Talk</a
+      >
+      <a href="avContactJoin.html" class="w3-bar-item w3-button w3-hover-blue"
+        >Contact Information</a
+      >
+    </div>
+
+    <!-- Overlay -->
+    <div onclick="w3_close()" id="myOverlay"></div>
+
+    <!-- Main content -->
+    <main class="w3-container" style="flex: 1">
+      <ul>
+        Automotive technical and mechanical probmels engine tuning and
+        Performance exhaust systems
+      </ul>
+
+      <h1>Automotive, Technical, and Mechanical Services</h1>
+      <p>
+        Our staff consists of trained technicians and mechanics who are
+        committed to providing you with the best automotive service. Our
+        technicians are trained to work with the computers and the compatible
+        equipment to discover the problems in your car. Our team works on
+        traditional mechanical components, such as engines, transmissions, and
+        drive belts. However, they are also familiar with a growing number of
+        electronic systems. Braking, transmission, and steering systems, for
+        example, are controlled primarily by computers and electronic
+        components. Other systems, such as accident-avoidance sensors, are
+        becoming common as well. In addition, a growing number of technicians
+        are required to work on vehicles that run on alternative fuels, such as
+        ethanol and electricity.
+      </p>
+      <li>Scheduled Factory Maintinence</li>
+      <li>Automotive air-conditioning service</li>
+      <li>Break repairs</li>
+      <li>Front-end service</li>
+      <li>Driveability</li>
+
+      <b></b>
+      <h1>Engine Tuning and Performance</h1>
+      <p>
+        For the peak performance of your vehicle, your engine must be healthy.
+        AV Repair’s tuning services can help keep your engine healthy and
+        operating at peak performance. To perform a basic engine tune-up
+        procedure, AV Repair goes through a series of inspections:
+      </p>
+
+      <ol>
+        <li>
+          Visually inspect the engine’s fuel-system components looking to make
+          sure the fuel filter is clean and clog-free, that a clogged filter
+          hasn’t caused any damage to the fuel pump, and that the fuel injectors
+          are free of deposits and other grime.
+        </li>
+        <li>Visually inspect the spark plugs to gauge their age and wear.</li>
+        <li>Check spark plug for wear and re-gap as necessary.</li>
+        <li>
+          As needed, replace your vehicle’s points and condenser, if applicable.
+        </li>
+        <li>
+          Check and adjust the ignition timing, timing belts and idle if needed.
+        </li>
+        <li>Check the engine’s PCV valve.</li>
+        <li>Check the vehicle’s engine air filter and cabin air filter.</li>
+        <li>Check oil and coolant levels.</li>
+        <li>Assess and address cause of “Check Engine” indicator.</li>
+        <li>Check and adjust tire inflation.</li>
+      </ol>
+
+      <p>
+        Engine tuning is the adjustment or modification of the engine or ECU
+        (engine control unit) to yield optimal performance and increase the
+        engine's power output, economy, or durability. These goals may be
+        mutually exclusive; an engine may be de-tuned with respect to output
+        power in exchange for better economy or longer engine life due to
+        lessened stress on engine components. Tuning can include a wide variety
+        of adjustments and modifications, such as the routine adjustment of the
+        carburetor and ignition system to significant engine overhauls.
+        Performance tuning of an engine can involve revising some of the design
+        decisions taken during the development of the engine. Setting the idle
+        speed, air-fuel-ratio, carburetor balance, spark plug and distributor
+        point gaps, and ignition timing are regular maintenance tasks for older
+        engines. On modern engines equipped with electronic ignition and fuel
+        injection, some or all of these tasks are automated but they still
+        require periodic calibration.
+      </p>
+
+      <h1>Exhaust systems</h1>
+
+      <p>
+        When people think of a car’s exhaust system, they usually think of the
+        muffler. But there are other components to the exhaust system, and over
+        the years, automakers have developed more and more sophisticated ways to
+        increase efficiency, reduce noise, and limit emissions. Your exhaust
+        system includes your muffler, piping, and a catalytic converter, which
+        reduces pollution. Generally speaking, exhaust systems are resilient,
+        and problems that arise with them are often a sign that something else
+        in the vehicle isn’t working properly. Still, it’s important to be
+        vigilant about possible exhaust problems. Signs of an exhaust system,
+        catalytic converter or muffler problem include:
+      </p>
+
+      <li>Rattling or loud noise when depressing the accelerator</li>
+      <li>Excessive loud noises while driving</li>
+      <li>Gasoline or sulfur odors</li>
+      <li>Decrease in acceleration or power</li>
+      <li>Decrease in fuel efficiency</li>
+
+      <p>
+        At AV Repair, our technicians are well versed in exhaust and muffler
+        problems and the latest methods of remedying them. We work with both
+        sound-absorbing and baffled chambered mufflers, and we can handle the
+        exhaust problems that are common among all major makes and models. We
+        can also diagnose engine skipping and other troubles that could lead to
+        a costly replacement of your catalytic converter. No matter what exhaust
+        problem you’re facing, our AV Repair team is ready to help get your
+        vehicle back into tip-top shape.
+      </p>
+    </main>
+
+    <!-- Footer -->
+    <footer
+      style="
+        background-color: #f2f2f2;
+        color: #333;
+        padding: 20px 40px;
+        text-align: left;
+      "
+    >
+      <div
+        style="
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          flex-wrap: wrap;
+        "
+      >
+        <!-- Left: Contact info -->
+        <div style="flex: 1; min-width: 200px">
+          <p>
+            <strong>Address:</strong> 2350 Turnpike St, North Andover, MA
+            01845<br />
+            <strong>Phone:</strong> (978) 975-0957<br />
+            <strong>Email:</strong>
+            <a href="mailto:avrepairinc@gmail.com">avrepairinc@gmail.com</a>
+          </p>
+        </div>
+
+        <!-- Center: Company Logo -->
+        <div style="flex: 0 0 auto; text-align: center">
+          <img
+            src="images/av-logo.png"
+            alt="Company Logo"
+            style="height: 100px; max-width: 300%"
+          />
+        </div>
+
+        <!-- Right: Facebook + Join Us -->
+        <div
+          style="
+            flex: 1;
+            min-width: 200px;
+            text-align: right;
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+          "
+        >
+          <!-- Facebook button -->
+          <a
+            href="https://www.facebook.com/groups/1889685858011404/"
+            target="_blank"
+            style="text-decoration: none"
+          >
+            <button
+              class="w3-button"
+              style="
+                padding: 5px 10px;
+                display: flex;
+                align-items: center;
+                gap: 5px;
+              "
+            >
+              <img
+                src="images/facebook-circular-logo.png"
+                alt="Facebook"
+                style="height: 24px; width: 24px"
+              />
+              Visit Facebook
+            </button>
+          </a>
+
+          <!-- Join Us button -->
+          <a href="avContactJoin.html" style="text-decoration: none">
+            <button class="w3-button w3-black">Join Us</button>
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript-->
+    <script>
+      function w3_open() {
+        document.getElementById("mySidebar").classList.add("show");
+        document.getElementById("myOverlay").classList.add("show");
+      }
+
+      function w3_close() {
+        document.getElementById("mySidebar").classList.remove("show");
+        document.getElementById("myOverlay").classList.remove("show");
+      }
+
+      function toggleAccordion(id, btn) {
+        var x = document.getElementById(id);
+        var arrow = btn.querySelector(".arrow");
+        if (x.classList.contains("w3-show")) {
+          x.classList.remove("w3-show");
+          x.classList.add("w3-hide");
+          arrow.textContent = "▼";
+        } else {
+          x.classList.remove("w3-hide");
+          x.classList.add("w3-show");
+          arrow.textContent = "▲";
+        }
+      }
+    </script>
+  </body>
 </html>
