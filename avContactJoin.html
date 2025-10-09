@@ -92,6 +92,17 @@
       font-size: 14px;
       padding: 6px 10px;
     }
+
+    .section-block {
+      margin-top: 80px;
+      padding: 40px;
+      background-color: #fffaf0;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    html {
+      scroll-behavior: smooth;
+    }
   </style>
 </head>
 <body style="display: flex; flex-direction: column; min-height: 100vh; margin: 0;">
@@ -136,47 +147,56 @@
   <div onclick="w3_close()" id="myOverlay"></div>
 
   <!-- Main content -->
-  <main class="w3-container" style="flex: 1;">
-   
+  <main class="w3-container" style="flex: 1; padding: 40px 20px;">
+    <h2 class="w3-center" style="font-size: 36px; font-weight: 800; color: #b30000;">
+      Get in touch with AV Repair
+    </h2>
+   <p class="w3-center" style="font-size: 18px;">
+    We're here to help - contact us by phone, email, or stop by the repair shop.
+   </p>
+
+   <div
+   class="section-block" style="margin-top: 50px;">
+  <h3> Our Contact Information</h3>
+  <p style="font-size: 18px; line-height: 1.8;">
+    <strong> Address:</strong><br />
+    2350 Turnpike Street <br />
+    North Andover, MA 01845
+  </p>
+<p style="font-size: 18px; line-height: 1.8;">
+  <strong>Phone:</strong><a href="tel:19789750957" style="color: #b30000; font-weight: bold;"> (978) 975-0957</a><br />
+  <strong>Email:</strong> <a href="mailto: avrepairinc@gmail.com" style="color: #b30000; font-weight: bold;"> avrepairinc@gmail.com</a>
+</p>
+
+<p style="font-size: 18px;">
+  Whether you're looking for a quote, have questions about services, or want to join our team, we'd love to hear from you!
+  </p>
+
+  <div style="margin-top: 30px;">
+    <a href="https://www.facebook.com/groups/1889685858011404/" target="_blank" style="text-decoration: none;">
+      <button class="w3-button w3-margin-bottom" style="background-color: #3b5998; color:white ; padding: 10px 20px; font-weight: bold;">
+        Visit Us on Facebook
+      </button>
+    </a>
+    <a href="avContactJoin.html" style="text-decoration: none;">
+      <button class="w3-button w3-black w3-margin-left w3-margin-bottom" style="padding: 10px 20px; font-weight: bold;">
+        Join Our Team
+      </button>
+    </a>
+  </div>
+</div>
   </main>
     
 
 <!-- Footer -->
-<footer style="background-color: #f2f2f2; color: #333; padding: 20px 40px; text-align: left;">
-  <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;">
-
-    <!-- Left: Contact info -->
-    <div style="flex: 1; min-width: 200px;">
-      <p>
-        <strong>Address:</strong>  2350 Turnpike St, North Andover, MA 01845<br>
-        <strong>Phone:</strong>  (978) 975-0957<br>
-        <strong>Email:</strong> <a href="mailto:avrepairinc@gmail.com">avrepairinc@gmail.com</a>
-      </p>
-    </div>
+<footer class="w3-container w3-center" style="padding: 32px; background-color: #f1f1f1;">
+  <p style="margin: 0;">&copy; 2025 AV Repair inc. All rights reserved</p>
+</footer>
 
     <!-- Center: Company Logo -->
     <div style="flex: 0 0 auto; text-align: center;">
       <img src="images/av-logo.png" alt="Company Logo" style="height: 100px; max-width: 300%;">
     </div>
-
-     <!-- Right: Facebook + Join Us -->
-    <div style="flex: 1; min-width: 200px; text-align: right; display: flex; justify-content: flex-end; gap: 10px;">
-      <!-- Facebook button -->
-      <a href="https://www.facebook.com/groups/1889685858011404/" target="_blank" style="text-decoration: none;">
-        <button class="w3-button" style="padding: 5px 10px; display: flex; align-items: center; gap: 5px;">
-          <img src="images/facebook-circular-logo.png" alt="Facebook" style="height: 24px; width: 24px;">
-          Visit Facebook
-        </button>
-      </a>
-
-      <!-- Join Us button -->
-      <a href="avContactJoin.html" style="text-decoration: none;">
-        <button class="w3-button w3-black">Join Us</button>
-      </a>
-    </div>
-  </div>
-</footer>
-
 
   <!-- JavaScript-->
   <script>
@@ -191,16 +211,18 @@
     }
 
     function toggleAccordion(id, btn) {
-      var x = document.getElementById(id);
-      var arrow = btn.querySelector(".arrow");
-      if (x.classList.contains("w3-show")) {
-        x.classList.remove("w3-show");
-        x.classList.add("w3-hide");
-        arrow.textContent = "▼";
-      } else {
-        x.classList.remove("w3-hide");
-        x.classList.add("w3-show");
-        arrow.textContent = "▲";
+    const element = document.getElementById(id);
+    const isOpen = element.classList.contains("w3-show");
+    const arrow = btn.querySelector(".arrow");
+
+    if (isOpen) {
+      element.classList.remove("w3-show");
+      element.classList.add("w3-hide");
+      arrow.textContent = "▼";
+    } else {
+      element.classList.remove("w3-hide");
+      element.classList.add("w3-show");
+      arrow.textContent = "▲";
       }
     }
   </script>
