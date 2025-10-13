@@ -96,6 +96,34 @@
         font-size: 14px;
         padding: 6px 10px;
       }
+       /*Services Links*/
+      .service-links a {
+        text-decoration: none;
+        color: #b30000;
+        font-weight: bold;
+      }
+
+      .service-links a:hover {
+        text-decoration: underline;
+      }
+
+      .section-block {
+        margin-top: 80px;
+        padding: 40px;
+        background-color: #fffaf0;
+        border-radius: 10px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        margin-bottom: 40px;
+      }
+
+      .section-block h3 {
+        color: #b30000;
+        font-size: 24px;
+        margin-bottom: 10px;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
     </style>
   </head>
   <body
@@ -182,7 +210,7 @@
     <!-- Main content -->
     <main class="w3-container" style="flex: 1">
       <h2 class="w3-center" style="font-size: 36px; font-weight: 800">
-        Maintenance & Routine Services
+       Estimates and Records
       </h2>
       <p class="w3-center" style="font-size: 18px">
         Select a service to learn more:
@@ -201,11 +229,11 @@
           <a href="#license">Licensed Appraisal</a>
         </li>
         <li><a href="#free">Free Written Repair Estimates</a></li>
-        <li><a href="#performance">Exhaust System</a></li>
+        <li><a href="#computerized">Computerized Maintenance</a></li>
       </ul>
 
-      <div id="license" class="section-block" style="margin-top: 50px"></div>
-      <h1>Licensed Appraisal</h1>
+      <div id="license" class="section-block" style="margin-top: 50px">
+      <h3>Licensed Appraisal</h3>
       <p>
         An appraisal will help you determine your car’s value, something you may
         not be able to accomplish personally. Getting your car appraised is not
@@ -218,9 +246,10 @@
         our opinion of your car’s value. That value will be based on what the
         car could sell for at retail today.
       </p>
+      </div>
 
-      <div id="free" class="section-block" style="margin-top: 50px"></div>
-      <h1>Free Written Repair Estimates</h1>
+      <div id="free" class="section-block" style="margin-top: 50px">
+      <h3>Free Written Repair Estimates</h3>
       <p>
         You should be sure to always insist on getting a free written repair
         estimate whenever you have your car serviced. A written auto repair
@@ -234,9 +263,10 @@
         before asking you to approve moving forward with any maintenance or
         repairs.
       </p>
+      </div>
 
-      <div id="free" class="section-block" style="margin-top: 50px"></div>
-      <h1>Computerized Maintinence Records</h1>
+      <div id="computerized" class="section-block" style="margin-top: 50px">
+      <h3>Computerized Maintinence Records</h3>
       <p>
         What about the receipts for all the maintenance and repair you’ve had
         done to your car? Are they squished in your glove compartment? Do you
@@ -246,6 +276,7 @@
         your car privately, prospective owners may be more inclined to purchase
         a car with a carefully maintained service history.
       </p>
+      </div>
     </main>
 
     <!-- Footer -->
