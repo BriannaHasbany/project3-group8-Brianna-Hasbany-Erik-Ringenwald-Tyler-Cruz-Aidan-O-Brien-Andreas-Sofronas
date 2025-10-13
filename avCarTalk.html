@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
-   <title>Car Talk</title>
+  <title>Car Talk - AV Repair Blog</title>
   <style>
     h1 {
       font-family: "Arial Black", sans-serif;
@@ -21,7 +21,7 @@
       margin: 0;
       background-color: beige;
     }
-  
+
     header {
       background-image: url("images/avHeader.jpg"); 
       background-position: center;
@@ -92,11 +92,63 @@
       font-size: 14px;
       padding: 6px 10px;
     }
+
+    .blog-post {
+      background: white;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      padding: 24px;
+      margin: 40px auto;
+      border-radius: 12px;
+      max-width: 900px;
+    }
+
+    .blog-post h2 {
+      color: #003366;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+    }
+
+    .blog-post h3 {
+      color: #444;
+      margin-top: 24px;
+    }
+
+    .blog-author {
+      margin-top: 40px;
+      font-style: italic;
+      color: #666;
+    }
+
+    .comment-section {
+      border-top: 1px solid #ddd;
+      margin-top: 30px;
+      padding-top: 15px;
+    }
+
+    .comment {
+      background-color: #f9f9f9;
+      border-radius: 8px;
+      padding: 10px;
+      margin: 10px 0;
+    }
+
+    .comment-form input, .comment-form textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 6px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .comment-form button {
+      margin-top: 10px;
+    }
   </style>
 </head>
 <body style="display: flex; flex-direction: column; min-height: 100vh; margin: 0;">
 
-  <!-- Header with image background -->
+  <!-- Header -->
   <header class="w3-display-container">
     <button class="w3-button w3-xlarge hamburger" onclick="w3_open()">&#9776;</button>
     <h1>Our Blog - Car Talk</h1>
@@ -137,48 +189,127 @@
 
   <!-- Main content -->
   <main class="w3-container" style="flex: 1;">
-   
-  </main>
     
+    <!-- Post 1 -->
+    <article class="blog-post">
+      <h2>How to Take Your Car Out of Winter Storage</h2>
+      <p><strong>Written by Paul MacKay</strong> &nbsp;|&nbsp; <em>March 7</em></p>
 
-<!-- Footer -->
-<footer style="background-color: #f2f2f2; color: #333; padding: 20px 40px; text-align: left;">
-  <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;">
+      <p>Summer will be here soon. Sports car, classic car and hobby car owners, start your engines!</p>
+      <p>Actually, before you do, you’ll want to follow some simple steps to bring your summer ride out to play after a long winter.</p>
 
-    <!-- Left: Contact info -->
-    <div style="flex: 1; min-width: 200px;">
-      <p>
-        <strong>Address:</strong>  2350 Turnpike St, North Andover, MA 01845<br>
-        <strong>Phone:</strong>  (978) 975-0957<br>
-        <strong>Email:</strong> <a href="mailto:avrepairinc@gmail.com">avrepairinc@gmail.com</a>
-      </p>
+      <h3>Top 5 checklist for bringing your car out of winter storage</h3>
+
+      <h4>1. Inspect Battery</h4>
+      <p>Check your battery’s condition. Ensure it was on a maintainer, that it’s fully charged, and clean the terminals if necessary. Avoid jump-starting a drained battery.</p>
+
+      <h4>2. Test Engine Oil</h4>
+      <p>Check the oil level and change it soon, even if it was changed before storage — fresh oil protects your engine.</p>
+
+      <h4>3. Examine Other Fluids</h4>
+      <p>Check coolant, brake, power steering, and fuel. If you didn’t use fuel stabilizer, add an octane booster and fill up with premium gas.</p>
+
+      <h4>4. Perform a Visual Check</h4>
+      <p>Inspect for leaks, cracks, corrosion, loose clamps, and rodent damage before starting the engine.</p>
+
+      <h4>5. Check Tires</h4>
+      <p>Inflate to the recommended PSI and inspect for cracks or bulges.</p>
+
+      <h3>Other Items</h3>
+      <ul>
+        <li>Inspect brakes, suspension, and exhaust.</li>
+        <li>Remove any material blocking the tailpipe.</li>
+        <li>Test headlights, blinkers, and taillights.</li>
+        <li>Inspect wipers and wash the car.</li>
+        <li>Air out the interior.</li>
+      </ul>
+
+      <p>Once checks are complete, start your car and let it idle to operating temperature before driving. Take it easy the first few miles!</p>
+
+      <p class="blog-author">Written by Paul MacKay</p>
+
+      <!-- Comments -->
+      <div class="comment-section">
+        <h4>Comments (1)</h4>
+        <div class="comment"><strong>Kevin:</strong> Great advice. 👍</div>
+        <form class="comment-form">
+          <h4>Leave a Comment</h4>
+          <input type="text" placeholder="Your Name" required>
+          <textarea rows="4" placeholder="Your Comment..." required></textarea>
+          <button class="w3-button w3-blue" type="submit">Post Comment</button>
+        </form>
+      </div>
+    </article>
+
+    <!-- Post 2 -->
+    <article class="blog-post">
+      <h2>Accidents Happen...</h2>
+      <p><strong>Written by Paul MacKay</strong> &nbsp;|&nbsp; <em>February 11</em></p>
+
+      <p>Accidents are something no one really prepares for, although everyone should. Statistics show that during the average driver’s lifetime they’ll be involved in 3 to 4 accidents. So a little preventive knowledge goes a long way.</p>
+
+      <h3>What to do at the accident scene</h3>
+      <ul>
+        <li>Check for injuries and call 911 if needed.</li>
+        <li>Even if you feel fine, get checked at a hospital — some injuries aren’t immediately obvious.</li>
+        <li>Exchange all necessary information: driver’s license, registration, VIN, and insurance details.</li>
+        <li>Take photos of both vehicles, the surroundings, and any damage or skid marks.</li>
+        <li>File a police report and keep a copy for your insurance company.</li>
+        <li>Gather witness names, numbers, and statements if possible.</li>
+        <li>Ask police if anyone is being cited.</li>
+        <li>Contact your insurance company immediately.</li>
+        <li>If towed, tell the tow company where to bring your car.</li>
+        <li>Stay calm — cars can be fixed. Your health is more important.</li>
+      </ul>
+
+      <p>After you get home, you can search “What should I do after an accident in Massachusetts” to double-check that you didn’t miss anything. Remember, it may seem devastating, but with a professional repair shop like AV Repair, your vehicle will be back to new in no time.</p>
+
+      <p class="blog-author">Written by Paul MacKay</p>
+
+      <!-- Comments -->
+      <div class="comment-section">
+        <h4>Comments</h4>
+        <div class="comment"><strong>Mary:</strong> Very helpful information — thank you!</div>
+        <form class="comment-form">
+          <h4>Leave a Comment</h4>
+          <input type="text" placeholder="Your Name" required>
+          <textarea rows="4" placeholder="Your Comment..." required></textarea>
+          <button class="w3-button w3-blue" type="submit">Post Comment</button>
+        </form>
+      </div>
+    </article>
+  </main>
+
+  <!-- Footer -->
+  <footer style="background-color: #f2f2f2; color: #333; padding: 20px 40px; text-align: left;">
+    <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;">
+      <div style="flex: 1; min-width: 200px;">
+        <p>
+          <strong>Address:</strong> 2350 Turnpike St, North Andover, MA 01845<br>
+          <strong>Phone:</strong> (978) 975-0957<br>
+          <strong>Email:</strong> <a href="mailto:avrepairinc@gmail.com">avrepairinc@gmail.com</a>
+        </p>
+      </div>
+
+      <div style="flex: 0 0 auto; text-align: center;">
+        <img src="images/av-logo.png" alt="Company Logo" style="height: 100px; max-width: 300%;">
+      </div>
+
+      <div style="flex: 1; min-width: 200px; text-align: right; display: flex; justify-content: flex-end; gap: 10px;">
+        <a href="https://www.facebook.com/groups/1889685858011404/" target="_blank" style="text-decoration: none;">
+          <button class="w3-button" style="padding: 5px 10px; display: flex; align-items: center; gap: 5px;">
+            <img src="images/facebook-circular-logo.png" alt="Facebook" style="height: 24px; width: 24px;">
+            Visit Facebook
+          </button>
+        </a>
+        <a href="avContactJoin.html" style="text-decoration: none;">
+          <button class="w3-button w3-black">Join Us</button>
+        </a>
+      </div>
     </div>
+  </footer>
 
-    <!-- Center: Company Logo -->
-    <div style="flex: 0 0 auto; text-align: center;">
-      <img src="images/av-logo.png" alt="Company Logo" style="height: 100px; max-width: 300%;">
-    </div>
-
-     <!-- Right: Facebook + Join Us -->
-    <div style="flex: 1; min-width: 200px; text-align: right; display: flex; justify-content: flex-end; gap: 10px;">
-      <!-- Facebook button -->
-      <a href="https://www.facebook.com/groups/1889685858011404/" target="_blank" style="text-decoration: none;">
-        <button class="w3-button" style="padding: 5px 10px; display: flex; align-items: center; gap: 5px;">
-          <img src="images/facebook-circular-logo.png" alt="Facebook" style="height: 24px; width: 24px;">
-          Visit Facebook
-        </button>
-      </a>
-
-      <!-- Join Us button -->
-      <a href="avContactJoin.html" style="text-decoration: none;">
-        <button class="w3-button w3-black">Join Us</button>
-      </a>
-    </div>
-  </div>
-</footer>
-
-
-  <!-- JavaScript-->
+  <!-- JavaScript -->
   <script>
     function w3_open() {
       document.getElementById("mySidebar").classList.add("show");
@@ -203,6 +334,22 @@
         arrow.textContent = "▲";
       }
     }
+
+    // Simple front-end comment handler (not stored permanently)
+    document.querySelectorAll('.comment-form').forEach(form => {
+      form.addEventListener('submit', e => {
+        e.preventDefault();
+        const name = form.querySelector('input').value.trim();
+        const commentText = form.querySelector('textarea').value.trim();
+        if (name && commentText) {
+          const newComment = document.createElement('div');
+          newComment.className = 'comment';
+          newComment.innerHTML = `<strong>${name}:</strong> ${commentText}`;
+          form.parentElement.insertBefore(newComment, form);
+          form.reset();
+        }
+      });
+    });
   </script>
 </body>
 </html>
