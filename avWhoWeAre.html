@@ -1,414 +1,581 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
-   <title>About Us</title>
-  <style>
-    h1 {
-      font-family: "Arial Black", sans-serif;
-      font-weight: 900;
-      letter-spacing: 1px;
-    }
-
-    h2, h3, h4, h5, h6 {
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    }  
-    
-    body {
-      font-family: Tahoma, "Trebuchet MS", sans-serif;
-      margin: 0;
-      background-color: beige;
-    }
-  
-    header {
-      background-image: url("images/avHeader.jpg"); 
-      background-position: center;
-      height: 200px; 
-      position: relative;
-      color: white;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
-      z-index: 1;
-    }
-
-    header h1 {
-      font-family:"Arial Black", sans-serif;
-      font-weight: 900;
-      letter-spacing: 2px;
-      margin: 0;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -100%);
-      font-size: 40px;
-    }
-
-    .hamburger {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      background: rgba(0,0,0,0.5);
-      color: white;
-    }
-
-    /* Overlay */
-    #myOverlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0,0,0,0.6);
-      z-index: 999;
-      display: none;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-
-    #myOverlay.show {
-      display: block;
-      opacity: 1;
-    }
-
-    /* Sidebar */
-    #mySidebar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 260px;
-      background: white;
-      z-index: 1000;
-      transform: translateX(-100%);
-      transition: transform 0.3s ease;
-    }
-
-    #mySidebar.show {
-      transform: translateX(0);
-    }
-
-    .close-btn {
-      font-size: 14px;
-      padding: 6px 10px;
-    }
-  </style>
-</head>
-<body style="display: flex; flex-direction: column; min-height: 100vh; margin: 0;">
-
-  <!-- Header with image background -->
-  <header class="w3-display-container">
-    <button class="w3-button w3-xlarge hamburger" onclick="w3_open()">&#9776;</button>
-    <h1>Who We Are</h1>
-  </header>
-
-  <!-- Sidebar -->
-  <div class="w3-sidebar w3-bar-block" id="mySidebar">
-    <div class="w3-container w3-center" style="padding:16px">
-      <img src="images/av-logo.png" alt="Company Logo" style="width:200px;max-width:100%">
-    </div>
-    <hr>
-    <button class="w3-bar-item w3-button close-btn w3-right" onclick="w3_close()">✕ Close</button>
-    <br><br>
-    <a href="index.html" class="w3-bar-item w3-button w3-hover-blue">Home</a>
-    <a href="avWhoWeAre.html" class="w3-bar-item w3-button w3-hover-blue">About Us</a>
-    <button class="w3-button w3-block w3-left-align" onclick="toggleAccordion('acc2', this)">
-      Services <span class="arrow">▼</span>
-    </button>
-    <div id="acc2" class="w3-hide w3-white w3-card">
-      <a href="avCollisionRepairs.html" class="w3-bar-item w3-button w3-hover-blue">Collision & Body Work</a>
-      <a href="avMaintenence.html" class="w3-bar-item w3-button w3-hover-blue">Maintenance & Routine Services</a>
-      <a href="avAutomotive.html" class="w3-bar-item w3-button w3-hover-blue">Mechanical & Performance</a>
-      <a href="avEstimates.html" class="w3-bar-item w3-button w3-hover-blue">Estimates & Records</a>
-    </div>
-    <button class="w3-button w3-block w3-left-align" onclick="toggleAccordion('acc3', this)">
-      Our Work <span class="arrow">▼</span>
-    </button>
-    <div id="acc3" class="w3-hide w3-white w3-card">
-      <a href="avPhotoGallery.html" class="w3-bar-item w3-button w3-hover-blue">Photo Gallery</a>
-      <a href="avReview.html" class="w3-bar-item w3-button w3-hover-blue">Reviews & Testimonials</a>
-    </div>
-    <a href="avCarTalk.html" class="w3-bar-item w3-button w3-hover-blue">Our Blog: Car Talk</a>
-    <a href="avContactJoin.html" class="w3-bar-item w3-button w3-hover-blue">Contact Information</a>
-  </div>
-
-  <!-- Overlay -->
-  <div onclick="w3_close()" id="myOverlay"></div>
-
-  <!-- Main content -->
-  <main class="w3-container" style="flex: 1;">
-<!-- Mission Statement Section -->
-<div class="w3-container w3-animate-opacity" style="width:100%; padding:80px 20px; text-align:center;">
-  <h2 style="font-size:48px; font-weight:800; margin-bottom:20px; color:#222;">
-    Our Mission
-  </h2>
-  <div style="width:80px; height:4px; background-color:#222; margin:0 auto 40px auto; border-radius:2px;"></div>
-  
-  <p style="font-size:22px; line-height:1.8; max-width:1000px; margin:0 auto 25px auto;">
-    To ensure your satisfaction, whether you come for routine maintenance or major repairs. Word of mouth is our best salesman. We pride ourselves on building relationships with each of our clients. We value every customer who walks through the door, no matter how big or small the repair is.
-  </p>
-  
-  <p style="font-size:22px; line-height:1.8; max-width:1000px; margin:0 auto;">
-    At AV Repair, our only goal is to provide you with exceptional and honest repair work, without the inflated prices. We provide bumper-to-bumper service and use quality parts and fluids. We want you to feel confident that you will get professional service that never leaves you feeling cheated.
-  </p>
-</div>
-
-<!-- Meet the Team Section -->
- <div class="w3-container w3-animate-opacity" style="width:100%; padding:80px 20px; text-align:center;">
-  <h2 style="font-size:48px; font-weight:800; margin-bottom:20px; color:#222;">
-    Meet Our Team
-  </h2>
-  <div style="width:80px; height:4px; background-color:#222; margin:0 auto 40px auto; border-radius:2px;"></div>
- <section style="padding: 40px 20px; text-align: center;">
-
-<div
-  class="w3-panel w3-card-4"
-  style="
-    background-color: white;
-    width: 50%;
-    margin: 40px auto;
-    text-align: center;
-    padding: 30px;
-    border-radius: 10px;
-    margin-top: -20px;
-  "
->
-  <span style="font-size: 80px; color: #444;">&#10077;</span>
-  <p style="margin-top: -40px; font-size: 18px; line-height: 1.6;">
-    <i><b>
-      Jim and his team are my go-to auto service shop. I’ve been taking my cars
-      to him for over 25 years. They’ve done everything from body work to engine
-      repair. I wouldn’t think of taking a vehicle of mine anywhere else.
-    </b></i>
-    <br /><br />
-    <i>— Paul M., Andover MA</i>
-  </p>
-</div>
-
-
-  <div
-    style="
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-      max-width: 1200px;
-      margin: 0 auto;
-    "
-  >
-    <!-- Jim -->
-    <div
-      style="
-        background: #fff;
-        border-radius: 12px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        padding: 25px;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-      "
-      onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.15)';"
-      onmouseout="this.style.transform=''; this.style.boxShadow='0 4px 10px rgba(0,0,0,0.1)';"
-    >
-      <h3 style="font-size: 24px; font-weight: 800; color: #b30000;">Jim Avre</h3>
-      <p style="font-size: 18px; color: #333; margin-bottom: 10px;">
-        <strong>Owner</strong>
-      </p>
-      <p style="font-size: 16px; line-height: 1.6;">
-        ASE-certified with 30+ years of experience, Jim built AV Repair into a trusted name for honest, reliable service in North Andover, MA.
-      </p>
-    </div>
-
-    <!-- Aidan -->
-    <div
-      style="
-        background: #fff;
-        border-radius: 12px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        padding: 25px;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-      "
-      onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.15)';"
-      onmouseout="this.style.transform=''; this.style.boxShadow='0 4px 10px rgba(0,0,0,0.1)';"
-    >
-      <h3 style="font-size: 24px; font-weight: 800; color: #b30000;">Aidan O’Brien</h3>
-      <p style="font-size: 18px; color: #333; margin-bottom: 10px;">
-        <strong>Lead Technician</strong>
-      </p>
-      <p style="font-size: 16px; line-height: 1.6;">
-        With 10+ years of experience and ASE certification, Aidan ensures every repair meets AV Repair’s high standards of quality and precision.
-      </p>
-    </div>
-
-    <!-- Brianna -->
-    <div
-      style="
-        background: #fff;
-        border-radius: 12px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        padding: 25px;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-      "
-      onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.15)';"
-      onmouseout="this.style.transform=''; this.style.boxShadow='0 4px 10px rgba(0,0,0,0.1)';"
-    >
-      <h3 style="font-size: 24px; font-weight: 800; color: #b30000;">Brianna Hasbany</h3>
-      <p style="font-size: 18px; color: #333; margin-bottom: 10px;">
-        <strong>Customer Service Manager</strong>
-      </p>
-      <p style="font-size: 16px; line-height: 1.6;">
-        Dedicated to exceptional service, Brianna helps customers understand repairs and ensures a smooth, stress-free experience from start to finish.
-      </p>
-    </div>
-
-    <!-- Erik -->
-    <div
-      style="
-        background: #fff;
-        border-radius: 12px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        padding: 25px;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-      "
-      onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.15)';"
-      onmouseout="this.style.transform=''; this.style.boxShadow='0 4px 10px rgba(0,0,0,0.1)';"
-    >
-      <h3 style="font-size: 24px; font-weight: 800; color: #b30000;">Erik Ringenwald</h3>
-      <p style="font-size: 18px; color: #333; margin-bottom: 10px;">
-        <strong>Technician</strong>
-      </p>
-      <p style="font-size: 16px; line-height: 1.6;">
-        An ASE-certified technician with 7 years of experience, Erik brings deep technical skill and a drive to stay current with new automotive technologies.
-      </p>
-    </div>
-
-    <!-- Andreas -->
-    <div
-      style="
-        background: #fff;
-        border-radius: 12px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        padding: 25px;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-      "
-      onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.15)';"
-      onmouseout="this.style.transform=''; this.style.boxShadow='0 4px 10px rgba(0,0,0,0.1)';"
-    >
-      <h3 style="font-size: 24px; font-weight: 800; color: #b30000;">Andreas Sofronas</h3>
-      <p style="font-size: 18px; color: #333; margin-bottom: 10px;">
-        <strong>Apprentice Technician</strong>
-      </p>
-      <p style="font-size: 16px; line-height: 1.6;">
-        Andreas is gaining hands-on experience and training under AV Repair’s experts, bringing passion and curiosity to every project.
-      </p>
-    </div>
-
-    <!-- Tyler -->
-    <div
-      style="
-        background: #fff;
-        border-radius: 12px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        padding: 25px;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-      "
-      onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.15)';"
-      onmouseout="this.style.transform=''; this.style.boxShadow='0 4px 10px rgba(0,0,0,0.1)';"
-    >
-      <h3 style="font-size: 24px; font-weight: 800; color: #b30000;">Tyler Cruz</h3>
-      <p style="font-size: 18px; color: #333; margin-bottom: 10px;">
-        <strong>Office Manager</strong>
-      </p>
-      <p style="font-size: 16px; line-height: 1.6;">
-        Tyler manages operations and customer communications, ensuring every client is greeted with efficiency, professionalism, and care.
-      </p>
-    </div>
-  </div>
-</section>
-</div>
-
-  <div
-  class="w3-card-4"
-  style="
-    width: 50%;
-    margin: 40px auto;
-    border-radius: 10px;
-    overflow: hidden;
-    text-align: center;
-  "
->
-  <img
-    src="images/team-photo-jim.png"
-    alt="Jim Avre and the AV Repair team"
-    style="width: 100%; height: auto;"
-  />
-  <div style="padding: 15px; font-size: 18px; color: #333;">
-    <i>From left to right: Aidan, Tyler, Brianna, Erik, Andreas, Jim</i>
-  </div>
-</div>
-
-
-  </main>
-    
-
-<!-- Footer -->
-<footer style="background-color: #f2f2f2; color: #333; padding: 20px 40px; text-align: left;">
-  <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;">
-
-    <!-- Left: Contact info -->
-    <div style="flex: 1; min-width: 200px;">
-      <p>
-        <strong>Address:</strong>  2350 Turnpike St, North Andover, MA 01845<br>
-        <strong>Phone:</strong>  (978) 975-0957<br>
-        <strong>Email:</strong> <a href="mailto:avrepairinc@gmail.com">avrepairinc@gmail.com</a>
-      </p>
-    </div>
-    <!-- Center: Company Logo -->
-    <div style="flex: 0 0 auto; text-align: center;">
-      <img src="images/av-logo.png" alt="Company Logo" style="height: 100px; max-width: 300%;">
-    </div>
-
-     <!-- Right: Facebook + Join Us -->
-    <div style="flex: 1; min-width: 200px; text-align: right; display: flex; justify-content: flex-end; gap: 10px;">
-      <!-- Facebook button -->
-      <a href="https://www.facebook.com/groups/1889685858011404/" target="_blank" style="text-decoration: none;">
-        <button class="w3-button" style="padding: 5px 10px; display: flex; align-items: center; gap: 5px;">
-          <img src="images/facebook-circular-logo.png" alt="Facebook" style="height: 24px; width: 24px;">
-          Visit Facebook
-        </button>
-      </a>
-
-      <!-- Join Us button -->
-      <a href="avContactJoin.html" style="text-decoration: none;">
-        <button class="w3-button w3-black">Join Us</button>
-      </a>
-    </div>
-  </div>
-</footer>
-
-
-  <!-- JavaScript-->
-  <script>
-    function w3_open() {
-      document.getElementById("mySidebar").classList.add("show");
-      document.getElementById("myOverlay").classList.add("show");
-    }
-
-    function w3_close() {
-      document.getElementById("mySidebar").classList.remove("show");
-      document.getElementById("myOverlay").classList.remove("show");
-    }
-
-    function toggleAccordion(id, btn) {
-      var x = document.getElementById(id);
-      var arrow = btn.querySelector(".arrow");
-      if (x.classList.contains("w3-show")) {
-        x.classList.remove("w3-show");
-        x.classList.add("w3-hide");
-        arrow.textContent = "▼";
-      } else {
-        x.classList.remove("w3-hide");
-        x.classList.add("w3-show");
-        arrow.textContent = "▲";
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css" />
+    <title>About Us</title>
+    <style>
+      h1 {
+        font-family: "Arial Black", sans-serif;
+        font-weight: 900;
+        letter-spacing: 1px;
       }
-    }
-  </script>
-</body>
+
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        font-family: Tahoma, "Trebuchet MS", sans-serif;
+        margin: 0;
+        background-color: beige;
+      }
+
+      header {
+        background-image: url("images/avHeader.jpg");
+        background-position: center;
+        height: 200px;
+        position: relative;
+        color: white;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+        z-index: 1;
+      }
+
+      header h1 {
+        font-family: "Arial Black", sans-serif;
+        font-weight: 900;
+        letter-spacing: 2px;
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -100%);
+        font-size: 40px;
+      }
+
+      .hamburger {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        background: rgba(0, 0, 0, 0.5);
+        color: white;
+      }
+
+      /* Overlay */
+      #myOverlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+        z-index: 999;
+        display: none;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      #myOverlay.show {
+        display: block;
+        opacity: 1;
+      }
+
+      /* Sidebar */
+      #mySidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 260px;
+        background: white;
+        z-index: 1000;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+      }
+
+      #mySidebar.show {
+        transform: translateX(0);
+      }
+
+      .close-btn {
+        font-size: 14px;
+        padding: 6px 10px;
+      }
+    </style>
+  </head>
+  <body
+    style="display: flex; flex-direction: column; min-height: 100vh; margin: 0"
+  >
+    <!-- Header with image background -->
+    <header class="w3-display-container">
+      <button class="w3-button w3-xlarge hamburger" onclick="w3_open()">
+        &#9776;
+      </button>
+      <h1>Who We Are</h1>
+    </header>
+
+    <!-- Sidebar -->
+    <div class="w3-sidebar w3-bar-block" id="mySidebar">
+      <div class="w3-container w3-center" style="padding: 16px">
+        <img
+          src="images/av-logo.png"
+          alt="Company Logo"
+          style="width: 200px; max-width: 100%"
+        />
+      </div>
+      <hr />
+      <button
+        class="w3-bar-item w3-button close-btn w3-right"
+        onclick="w3_close()"
+      >
+        ✕ Close
+      </button>
+      <br /><br />
+      <a href="index.html" class="w3-bar-item w3-button w3-hover-blue">Home</a>
+      <a href="avWhoWeAre.html" class="w3-bar-item w3-button w3-hover-blue"
+        >About Us</a
+      >
+      <button
+        class="w3-button w3-block w3-left-align"
+        onclick="toggleAccordion('acc2', this)"
+      >
+        Services <span class="arrow">▼</span>
+      </button>
+      <div id="acc2" class="w3-hide w3-white w3-card">
+        <a
+          href="avCollisionRepairs.html"
+          class="w3-bar-item w3-button w3-hover-blue"
+          >Collision & Body Work</a
+        >
+        <a href="avMaintenence.html" class="w3-bar-item w3-button w3-hover-blue"
+          >Maintenance & Routine Services</a
+        >
+        <a href="avAutomotive.html" class="w3-bar-item w3-button w3-hover-blue"
+          >Mechanical & Performance</a
+        >
+        <a href="avEstimates.html" class="w3-bar-item w3-button w3-hover-blue"
+          >Estimates & Records</a
+        >
+      </div>
+      <button
+        class="w3-button w3-block w3-left-align"
+        onclick="toggleAccordion('acc3', this)"
+      >
+        Our Work <span class="arrow">▼</span>
+      </button>
+      <div id="acc3" class="w3-hide w3-white w3-card">
+        <a
+          href="avPhotoGallery.html"
+          class="w3-bar-item w3-button w3-hover-blue"
+          >Photo Gallery</a
+        >
+        <a href="avReview.html" class="w3-bar-item w3-button w3-hover-blue"
+          >Reviews & Testimonials</a
+        >
+      </div>
+      <a href="avCarTalk.html" class="w3-bar-item w3-button w3-hover-blue"
+        >Our Blog: Car Talk</a
+      >
+      <a href="avContactJoin.html" class="w3-bar-item w3-button w3-hover-blue"
+        >Contact Information</a
+      >
+    </div>
+
+    <!-- Overlay -->
+    <div onclick="w3_close()" id="myOverlay"></div>
+
+    <!-- Main content -->
+    <main class="w3-container" style="flex: 1">
+      <!-- Mission Statement Section -->
+      <div
+        class="w3-container w3-animate-opacity"
+        style="width: 100%; padding: 80px 20px; text-align: center"
+      >
+        <h2
+          style="
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: #222;
+          "
+        >
+          Our Mission
+        </h2>
+        <div
+          style="
+            width: 80px;
+            height: 4px;
+            background-color: #222;
+            margin: 0 auto 40px auto;
+            border-radius: 2px;
+          "
+        ></div>
+
+        <p
+          style="
+            font-size: 22px;
+            line-height: 1.8;
+            max-width: 1000px;
+            margin: 0 auto 25px auto;
+          "
+        >
+          To ensure your satisfaction, whether you come for routine maintenance
+          or major repairs. Word of mouth is our best salesman. We pride
+          ourselves on building relationships with each of our clients. We value
+          every customer who walks through the door, no matter how big or small
+          the repair is.
+        </p>
+
+        <p
+          style="
+            font-size: 22px;
+            line-height: 1.8;
+            max-width: 1000px;
+            margin: 0 auto;
+          "
+        >
+          At AV Repair, our only goal is to provide you with exceptional and
+          honest repair work, without the inflated prices. We provide
+          bumper-to-bumper service and use quality parts and fluids. We want you
+          to feel confident that you will get professional service that never
+          leaves you feeling cheated.
+        </p>
+      </div>
+
+      <!-- Meet the Team Section -->
+      <div
+        class="w3-container w3-animate-opacity"
+        style="width: 100%; padding: 80px 20px; text-align: center"
+      >
+        <h2
+          style="
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: #222;
+          "
+        >
+          Meet Our Team
+        </h2>
+        <div
+          style="
+            width: 80px;
+            height: 4px;
+            background-color: #222;
+            margin: 0 auto 40px auto;
+            border-radius: 2px;
+          "
+        ></div>
+        <section style="padding: 40px 20px; text-align: center">
+          <div
+            class="w3-panel w3-card-4"
+            style="
+              background-color: white;
+              width: 50%;
+              margin: 40px auto;
+              text-align: center;
+              padding: 30px;
+              border-radius: 10px;
+              margin-top: -20px;
+            "
+          >
+            <span style="font-size: 80px; color: #444">&#10077;</span>
+            <p style="margin-top: -40px; font-size: 18px; line-height: 1.6">
+              <i
+                ><b>
+                  Jim and his team are my go-to auto service shop. I’ve been
+                  taking my cars to him for over 25 years. They’ve done
+                  everything from body work to engine repair. I wouldn’t think
+                  of taking a vehicle of mine anywhere else.
+                </b></i
+              >
+              <br /><br />
+              <i>— Paul M., Andover MA</i>
+            </p>
+          </div>
+
+          <div
+            style="
+              display: grid;
+              grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+              gap: 30px;
+              max-width: 1200px;
+              margin: 0 auto;
+            "
+          >
+            <!-- Jim -->
+            <div
+              style="
+                background: #fff;
+                border-radius: 12px;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+                padding: 25px;
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+              "
+              onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.15)';"
+              onmouseout="this.style.transform=''; this.style.boxShadow='0 4px 10px rgba(0,0,0,0.1)';"
+            >
+              <h3 style="font-size: 24px; font-weight: 800; color: #b30000">
+                Jim Avre
+              </h3>
+              <p style="font-size: 18px; color: #333; margin-bottom: 10px">
+                <strong>Owner</strong>
+              </p>
+              <p style="font-size: 16px; line-height: 1.6">
+                ASE-certified with 30+ years of experience, Jim built AV Repair
+                into a trusted name for honest, reliable service in North
+                Andover, MA.
+              </p>
+            </div>
+
+            <!-- Aidan -->
+            <div
+              style="
+                background: #fff;
+                border-radius: 12px;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+                padding: 25px;
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+              "
+              onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.15)';"
+              onmouseout="this.style.transform=''; this.style.boxShadow='0 4px 10px rgba(0,0,0,0.1)';"
+            >
+              <h3 style="font-size: 24px; font-weight: 800; color: #b30000">
+                Aidan O’Brien
+              </h3>
+              <p style="font-size: 18px; color: #333; margin-bottom: 10px">
+                <strong>Lead Technician</strong>
+              </p>
+              <p style="font-size: 16px; line-height: 1.6">
+                With 10+ years of experience and ASE certification, Aidan
+                ensures every repair meets AV Repair’s high standards of quality
+                and precision.
+              </p>
+            </div>
+
+            <!-- Brianna -->
+            <div
+              style="
+                background: #fff;
+                border-radius: 12px;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+                padding: 25px;
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+              "
+              onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.15)';"
+              onmouseout="this.style.transform=''; this.style.boxShadow='0 4px 10px rgba(0,0,0,0.1)';"
+            >
+              <h3 style="font-size: 24px; font-weight: 800; color: #b30000">
+                Brianna Hasbany
+              </h3>
+              <p style="font-size: 18px; color: #333; margin-bottom: 10px">
+                <strong>Customer Service Manager</strong>
+              </p>
+              <p style="font-size: 16px; line-height: 1.6">
+                Dedicated to exceptional service, Brianna helps customers
+                understand repairs and ensures a smooth, stress-free experience
+                from start to finish.
+              </p>
+            </div>
+
+            <!-- Erik -->
+            <div
+              style="
+                background: #fff;
+                border-radius: 12px;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+                padding: 25px;
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+              "
+              onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.15)';"
+              onmouseout="this.style.transform=''; this.style.boxShadow='0 4px 10px rgba(0,0,0,0.1)';"
+            >
+              <h3 style="font-size: 24px; font-weight: 800; color: #b30000">
+                Erik Ringenwald
+              </h3>
+              <p style="font-size: 18px; color: #333; margin-bottom: 10px">
+                <strong>Technician</strong>
+              </p>
+              <p style="font-size: 16px; line-height: 1.6">
+                An ASE-certified technician with 7 years of experience, Erik
+                brings deep technical skill and a drive to stay current with new
+                automotive technologies.
+              </p>
+            </div>
+
+            <!-- Andreas -->
+            <div
+              style="
+                background: #fff;
+                border-radius: 12px;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+                padding: 25px;
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+              "
+              onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.15)';"
+              onmouseout="this.style.transform=''; this.style.boxShadow='0 4px 10px rgba(0,0,0,0.1)';"
+            >
+              <h3 style="font-size: 24px; font-weight: 800; color: #b30000">
+                Andreas Sofronas
+              </h3>
+              <p style="font-size: 18px; color: #333; margin-bottom: 10px">
+                <strong>Apprentice Technician</strong>
+              </p>
+              <p style="font-size: 16px; line-height: 1.6">
+                Andreas is gaining hands-on experience and training under AV
+                Repair’s experts, bringing passion and curiosity to every
+                project.
+              </p>
+            </div>
+
+            <!-- Tyler -->
+            <div
+              style="
+                background: #fff;
+                border-radius: 12px;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+                padding: 25px;
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+              "
+              onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.15)';"
+              onmouseout="this.style.transform=''; this.style.boxShadow='0 4px 10px rgba(0,0,0,0.1)';"
+            >
+              <h3 style="font-size: 24px; font-weight: 800; color: #b30000">
+                Tyler Cruz
+              </h3>
+              <p style="font-size: 18px; color: #333; margin-bottom: 10px">
+                <strong>Office Manager</strong>
+              </p>
+              <p style="font-size: 16px; line-height: 1.6">
+                Tyler manages operations and customer communications, ensuring
+                every client is greeted with efficiency, professionalism, and
+                care.
+              </p>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div
+        class="w3-card-4"
+        style="
+          width: 50%;
+          margin: 40px auto;
+          border-radius: 10px;
+          overflow: hidden;
+          text-align: center;
+        "
+      >
+        <img
+          src="images/team-photo-jim.png"
+          alt="Jim Avre and the AV Repair team"
+          style="width: 100%; height: auto"
+        />
+        <div style="padding: 15px; font-size: 18px; color: #333">
+          <i>From left to right: Aidan, Tyler, Brianna, Erik, Andreas, Jim</i>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer
+      style="
+        background-color: #f2f2f2;
+        color: #333;
+        padding: 20px 40px;
+        text-align: left;
+      "
+    >
+      <div
+        style="
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          flex-wrap: wrap;
+        "
+      >
+        <!-- Left: Contact info -->
+        <div style="flex: 1; min-width: 200px">
+          <p>
+            <strong>Address:</strong> 2350 Turnpike St, North Andover, MA
+            01845<br />
+            <strong>Phone:</strong> (978) 975-0957<br />
+            <strong>Email:</strong>
+            <a href="mailto:avrepairinc@gmail.com">avrepairinc@gmail.com</a>
+          </p>
+        </div>
+        <!-- Center: Company Logo -->
+        <div style="flex: 0 0 auto; text-align: center">
+          <img
+            src="images/av-logo.png"
+            alt="Company Logo"
+            style="height: 100px; max-width: 300%"
+          />
+        </div>
+
+        <!-- Right: Facebook + Join Us -->
+        <div
+          style="
+            flex: 1;
+            min-width: 200px;
+            text-align: right;
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+          "
+        >
+          <!-- Facebook button -->
+          <a
+            href="https://www.facebook.com/groups/1889685858011404/"
+            target="_blank"
+            style="text-decoration: none"
+          >
+            <button
+              class="w3-button"
+              style="
+                padding: 5px 10px;
+                display: flex;
+                align-items: center;
+                gap: 5px;
+              "
+            >
+              <img
+                src="images/facebook-circular-logo.png"
+                alt="Facebook"
+                style="height: 24px; width: 24px"
+              />
+              Visit Facebook
+            </button>
+          </a>
+
+          <!-- Join Us button -->
+          <a href="avContactJoin.html" style="text-decoration: none">
+            <button class="w3-button w3-black">Join Us</button>
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript-->
+    <script>
+      function w3_open() {
+        document.getElementById("mySidebar").classList.add("show");
+        document.getElementById("myOverlay").classList.add("show");
+      }
+
+      function w3_close() {
+        document.getElementById("mySidebar").classList.remove("show");
+        document.getElementById("myOverlay").classList.remove("show");
+      }
+
+      function toggleAccordion(id, btn) {
+        var x = document.getElementById(id);
+        var arrow = btn.querySelector(".arrow");
+        if (x.classList.contains("w3-show")) {
+          x.classList.remove("w3-show");
+          x.classList.add("w3-hide");
+          arrow.textContent = "▼";
+        } else {
+          x.classList.remove("w3-hide");
+          x.classList.add("w3-show");
+          arrow.textContent = "▲";
+        }
+      }
+    </script>
+  </body>
 </html>

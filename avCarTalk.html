@@ -1,355 +1,543 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
-  <title>Car Talk - AV Repair Blog</title>
-  <style>
-    h1 {
-      font-family: "Arial Black", sans-serif;
-      font-weight: 900;
-      letter-spacing: 1px;
-    }
-
-    h2, h3, h4, h5, h6 {
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    }  
-    
-    body {
-      font-family: Tahoma, "Trebuchet MS", sans-serif;
-      margin: 0;
-      background-color: beige;
-    }
-
-    header {
-      background-image: url("images/avHeader.jpg"); 
-      background-position: center;
-      height: 200px; 
-      position: relative;
-      color: white;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
-      z-index: 1;
-    }
-
-    header h1 {
-      font-family:"Arial Black", sans-serif;
-      font-weight: 900;
-      letter-spacing: 2px;
-      margin: 0;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -100%);
-      font-size: 40px;
-    }
-
-    .hamburger {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      background: rgba(0,0,0,0.5);
-      color: white;
-    }
-
-    /* Overlay */
-    #myOverlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0,0,0,0.6);
-      z-index: 999;
-      display: none;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-
-    #myOverlay.show {
-      display: block;
-      opacity: 1;
-    }
-
-    /* Sidebar */
-    #mySidebar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 260px;
-      background: white;
-      z-index: 1000;
-      transform: translateX(-100%);
-      transition: transform 0.3s ease;
-    }
-
-    #mySidebar.show {
-      transform: translateX(0);
-    }
-
-    .close-btn {
-      font-size: 14px;
-      padding: 6px 10px;
-    }
-
-    .blog-post {
-      background: white;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      padding: 24px;
-      margin: 40px auto;
-      border-radius: 12px;
-      max-width: 900px;
-    }
-
-    .blog-post h2 {
-      color: #003366;
-      border-bottom: 2px solid #ddd;
-      padding-bottom: 10px;
-      margin-bottom: 20px;
-    }
-
-    .blog-post h3 {
-      color: #444;
-      margin-top: 24px;
-    }
-
-    .blog-author {
-      margin-top: 40px;
-      font-style: italic;
-      color: #666;
-    }
-
-    .comment-section {
-      border-top: 1px solid #ddd;
-      margin-top: 30px;
-      padding-top: 15px;
-    }
-
-    .comment {
-      background-color: #f9f9f9;
-      border-radius: 8px;
-      padding: 10px;
-      margin: 10px 0;
-    }
-
-    .comment-form input, .comment-form textarea {
-      width: 100%;
-      padding: 8px;
-      margin-top: 6px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-    }
-
-    .comment-form button {
-      margin-top: 10px;
-    }
-  </style>
-</head>
-<body style="display: flex; flex-direction: column; min-height: 100vh; margin: 0;">
-
-  <!-- Header -->
-  <header class="w3-display-container">
-    <button class="w3-button w3-xlarge hamburger" onclick="w3_open()">&#9776;</button>
-    <h1>Our Blog - Car Talk</h1>
-  </header>
-
-  <!-- Sidebar -->
-  <div class="w3-sidebar w3-bar-block" id="mySidebar">
-    <div class="w3-container w3-center" style="padding:16px">
-      <img src="images/av-logo.png" alt="Company Logo" style="width:200px;max-width:100%">
-    </div>
-    <hr>
-    <button class="w3-bar-item w3-button close-btn w3-right" onclick="w3_close()">✕ Close</button>
-    <br><br>
-    <a href="index.html" class="w3-bar-item w3-button w3-hover-blue">Home</a>
-    <a href="avWhoWeAre.html" class="w3-bar-item w3-button w3-hover-blue">About Us</a>
-    <button class="w3-button w3-block w3-left-align" onclick="toggleAccordion('acc2', this)">
-      Services <span class="arrow">▼</span>
-    </button>
-    <div id="acc2" class="w3-hide w3-white w3-card">
-      <a href="avCollisionRepairs.html" class="w3-bar-item w3-button w3-hover-blue">Collision & Body Work</a>
-      <a href="avMaintenence.html" class="w3-bar-item w3-button w3-hover-blue">Maintenance & Routine Services</a>
-      <a href="avAutomotive.html" class="w3-bar-item w3-button w3-hover-blue">Mechanical & Performance</a>
-      <a href="avEstimates.html" class="w3-bar-item w3-button w3-hover-blue">Estimates & Records</a>
-    </div>
-    <button class="w3-button w3-block w3-left-align" onclick="toggleAccordion('acc3', this)">
-      Our Work <span class="arrow">▼</span>
-    </button>
-    <div id="acc3" class="w3-hide w3-white w3-card">
-      <a href="avPhotoGallery.html" class="w3-bar-item w3-button w3-hover-blue">Photo Gallery</a>
-      <a href="avReview.html" class="w3-bar-item w3-button w3-hover-blue">Reviews & Testimonials</a>
-    </div>
-    <a href="avCarTalk.html" class="w3-bar-item w3-button w3-hover-blue">Our Blog: Car Talk</a>
-    <a href="avContactJoin.html" class="w3-bar-item w3-button w3-hover-blue">Contact Information</a>
-  </div>
-
-  <!-- Overlay -->
-  <div onclick="w3_close()" id="myOverlay"></div>
-
-  <!-- Main content -->
-  <main class="w3-container" style="flex: 1;">
-    
-    <!-- Post 1 -->
-    <article class="blog-post">
-      <h2>How to Take Your Car Out of Winter Storage</h2>
-      <p><strong>Written by Paul MacKay</strong> &nbsp;|&nbsp; <em>March 7</em></p>
-
-      <p>Summer will be here soon. Sports car, classic car and hobby car owners, start your engines!</p>
-      <p>Actually, before you do, you’ll want to follow some simple steps to bring your summer ride out to play after a long winter.</p>
-
-      <h3>Top 5 checklist for bringing your car out of winter storage</h3>
-
-      <h4>1. Inspect Battery</h4>
-      <p>Check your battery’s condition. Ensure it was on a maintainer, that it’s fully charged, and clean the terminals if necessary. Avoid jump-starting a drained battery.</p>
-
-      <h4>2. Test Engine Oil</h4>
-      <p>Check the oil level and change it soon, even if it was changed before storage — fresh oil protects your engine.</p>
-
-      <h4>3. Examine Other Fluids</h4>
-      <p>Check coolant, brake, power steering, and fuel. If you didn’t use fuel stabilizer, add an octane booster and fill up with premium gas.</p>
-
-      <h4>4. Perform a Visual Check</h4>
-      <p>Inspect for leaks, cracks, corrosion, loose clamps, and rodent damage before starting the engine.</p>
-
-      <h4>5. Check Tires</h4>
-      <p>Inflate to the recommended PSI and inspect for cracks or bulges.</p>
-
-      <h3>Other Items</h3>
-      <ul>
-        <li>Inspect brakes, suspension, and exhaust.</li>
-        <li>Remove any material blocking the tailpipe.</li>
-        <li>Test headlights, blinkers, and taillights.</li>
-        <li>Inspect wipers and wash the car.</li>
-        <li>Air out the interior.</li>
-      </ul>
-
-      <p>Once checks are complete, start your car and let it idle to operating temperature before driving. Take it easy the first few miles!</p>
-
-      <p class="blog-author">Written by Paul MacKay</p>
-
-      <!-- Comments -->
-      <div class="comment-section">
-        <h4>Comments (1)</h4>
-        <div class="comment"><strong>Kevin:</strong> Great advice. 👍</div>
-        <form class="comment-form">
-          <h4>Leave a Comment</h4>
-          <input type="text" placeholder="Your Name" required>
-          <textarea rows="4" placeholder="Your Comment..." required></textarea>
-          <button class="w3-button w3-blue" type="submit">Post Comment</button>
-        </form>
-      </div>
-    </article>
-
-    <!-- Post 2 -->
-    <article class="blog-post">
-      <h2>Accidents Happen...</h2>
-      <p><strong>Written by Paul MacKay</strong> &nbsp;|&nbsp; <em>February 11</em></p>
-
-      <p>Accidents are something no one really prepares for, although everyone should. Statistics show that during the average driver’s lifetime they’ll be involved in 3 to 4 accidents. So a little preventive knowledge goes a long way.</p>
-
-      <h3>What to do at the accident scene</h3>
-      <ul>
-        <li>Check for injuries and call 911 if needed.</li>
-        <li>Even if you feel fine, get checked at a hospital — some injuries aren’t immediately obvious.</li>
-        <li>Exchange all necessary information: driver’s license, registration, VIN, and insurance details.</li>
-        <li>Take photos of both vehicles, the surroundings, and any damage or skid marks.</li>
-        <li>File a police report and keep a copy for your insurance company.</li>
-        <li>Gather witness names, numbers, and statements if possible.</li>
-        <li>Ask police if anyone is being cited.</li>
-        <li>Contact your insurance company immediately.</li>
-        <li>If towed, tell the tow company where to bring your car.</li>
-        <li>Stay calm — cars can be fixed. Your health is more important.</li>
-      </ul>
-
-      <p>After you get home, you can search “What should I do after an accident in Massachusetts” to double-check that you didn’t miss anything. Remember, it may seem devastating, but with a professional repair shop like AV Repair, your vehicle will be back to new in no time.</p>
-
-      <p class="blog-author">Written by Paul MacKay</p>
-
-      <!-- Comments -->
-      <div class="comment-section">
-        <h4>Comments</h4>
-        <div class="comment"><strong>Mary:</strong> Very helpful information — thank you!</div>
-        <form class="comment-form">
-          <h4>Leave a Comment</h4>
-          <input type="text" placeholder="Your Name" required>
-          <textarea rows="4" placeholder="Your Comment..." required></textarea>
-          <button class="w3-button w3-blue" type="submit">Post Comment</button>
-        </form>
-      </div>
-    </article>
-  </main>
-
-  <!-- Footer -->
-  <footer style="background-color: #f2f2f2; color: #333; padding: 20px 40px; text-align: left;">
-    <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;">
-      <div style="flex: 1; min-width: 200px;">
-        <p>
-          <strong>Address:</strong> 2350 Turnpike St, North Andover, MA 01845<br>
-          <strong>Phone:</strong> (978) 975-0957<br>
-          <strong>Email:</strong> <a href="mailto:avrepairinc@gmail.com">avrepairinc@gmail.com</a>
-        </p>
-      </div>
-
-      <div style="flex: 0 0 auto; text-align: center;">
-        <img src="images/av-logo.png" alt="Company Logo" style="height: 100px; max-width: 300%;">
-      </div>
-
-      <div style="flex: 1; min-width: 200px; text-align: right; display: flex; justify-content: flex-end; gap: 10px;">
-        <a href="https://www.facebook.com/groups/1889685858011404/" target="_blank" style="text-decoration: none;">
-          <button class="w3-button" style="padding: 5px 10px; display: flex; align-items: center; gap: 5px;">
-            <img src="images/facebook-circular-logo.png" alt="Facebook" style="height: 24px; width: 24px;">
-            Visit Facebook
-          </button>
-        </a>
-        <a href="avContactJoin.html" style="text-decoration: none;">
-          <button class="w3-button w3-black">Join Us</button>
-        </a>
-      </div>
-    </div>
-  </footer>
-
-  <!-- JavaScript -->
-  <script>
-    function w3_open() {
-      document.getElementById("mySidebar").classList.add("show");
-      document.getElementById("myOverlay").classList.add("show");
-    }
-
-    function w3_close() {
-      document.getElementById("mySidebar").classList.remove("show");
-      document.getElementById("myOverlay").classList.remove("show");
-    }
-
-    function toggleAccordion(id, btn) {
-      var x = document.getElementById(id);
-      var arrow = btn.querySelector(".arrow");
-      if (x.classList.contains("w3-show")) {
-        x.classList.remove("w3-show");
-        x.classList.add("w3-hide");
-        arrow.textContent = "▼";
-      } else {
-        x.classList.remove("w3-hide");
-        x.classList.add("w3-show");
-        arrow.textContent = "▲";
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css" />
+    <title>Car Talk - AV Repair Blog</title>
+    <style>
+      h1 {
+        font-family: "Arial Black", sans-serif;
+        font-weight: 900;
+        letter-spacing: 1px;
       }
-    }
 
-    // Simple front-end comment handler (not stored permanently)
-    document.querySelectorAll('.comment-form').forEach(form => {
-      form.addEventListener('submit', e => {
-        e.preventDefault();
-        const name = form.querySelector('input').value.trim();
-        const commentText = form.querySelector('textarea').value.trim();
-        if (name && commentText) {
-          const newComment = document.createElement('div');
-          newComment.className = 'comment';
-          newComment.innerHTML = `<strong>${name}:</strong> ${commentText}`;
-          form.parentElement.insertBefore(newComment, form);
-          form.reset();
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        font-family: Tahoma, "Trebuchet MS", sans-serif;
+        margin: 0;
+        background-color: beige;
+      }
+
+      header {
+        background-image: url("images/avHeader.jpg");
+        background-position: center;
+        height: 200px;
+        position: relative;
+        color: white;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+        z-index: 1;
+      }
+
+      header h1 {
+        font-family: "Arial Black", sans-serif;
+        font-weight: 900;
+        letter-spacing: 2px;
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -100%);
+        font-size: 40px;
+      }
+
+      .hamburger {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        background: rgba(0, 0, 0, 0.5);
+        color: white;
+      }
+
+      /* Overlay */
+      #myOverlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+        z-index: 999;
+        display: none;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      #myOverlay.show {
+        display: block;
+        opacity: 1;
+      }
+
+      /* Sidebar */
+      #mySidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 260px;
+        background: white;
+        z-index: 1000;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+      }
+
+      #mySidebar.show {
+        transform: translateX(0);
+      }
+
+      .close-btn {
+        font-size: 14px;
+        padding: 6px 10px;
+      }
+
+      .blog-post {
+        background: white;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        padding: 24px;
+        margin: 40px auto;
+        border-radius: 12px;
+        max-width: 900px;
+      }
+
+      .blog-post h2 {
+        color: #003366;
+        border-bottom: 2px solid #ddd;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+      }
+
+      .blog-post h3 {
+        color: #444;
+        margin-top: 24px;
+      }
+
+      .blog-author {
+        margin-top: 40px;
+        font-style: italic;
+        color: #666;
+      }
+
+      .comment-section {
+        border-top: 1px solid #ddd;
+        margin-top: 30px;
+        padding-top: 15px;
+      }
+
+      .comment {
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        padding: 10px;
+        margin: 10px 0;
+      }
+
+      .comment-form input,
+      .comment-form textarea {
+        width: 100%;
+        padding: 8px;
+        margin-top: 6px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+      }
+
+      .comment-form button {
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body
+    style="display: flex; flex-direction: column; min-height: 100vh; margin: 0"
+  >
+    <!-- Header -->
+    <header class="w3-display-container">
+      <button class="w3-button w3-xlarge hamburger" onclick="w3_open()">
+        &#9776;
+      </button>
+      <h1>Our Blog - Car Talk</h1>
+    </header>
+
+    <!-- Sidebar -->
+    <div class="w3-sidebar w3-bar-block" id="mySidebar">
+      <div class="w3-container w3-center" style="padding: 16px">
+        <img
+          src="images/av-logo.png"
+          alt="Company Logo"
+          style="width: 200px; max-width: 100%"
+        />
+      </div>
+      <hr />
+      <button
+        class="w3-bar-item w3-button close-btn w3-right"
+        onclick="w3_close()"
+      >
+        ✕ Close
+      </button>
+      <br /><br />
+      <a href="index.html" class="w3-bar-item w3-button w3-hover-blue">Home</a>
+      <a href="avWhoWeAre.html" class="w3-bar-item w3-button w3-hover-blue"
+        >About Us</a
+      >
+      <button
+        class="w3-button w3-block w3-left-align"
+        onclick="toggleAccordion('acc2', this)"
+      >
+        Services <span class="arrow">▼</span>
+      </button>
+      <div id="acc2" class="w3-hide w3-white w3-card">
+        <a
+          href="avCollisionRepairs.html"
+          class="w3-bar-item w3-button w3-hover-blue"
+          >Collision & Body Work</a
+        >
+        <a href="avMaintenence.html" class="w3-bar-item w3-button w3-hover-blue"
+          >Maintenance & Routine Services</a
+        >
+        <a href="avAutomotive.html" class="w3-bar-item w3-button w3-hover-blue"
+          >Mechanical & Performance</a
+        >
+        <a href="avEstimates.html" class="w3-bar-item w3-button w3-hover-blue"
+          >Estimates & Records</a
+        >
+      </div>
+      <button
+        class="w3-button w3-block w3-left-align"
+        onclick="toggleAccordion('acc3', this)"
+      >
+        Our Work <span class="arrow">▼</span>
+      </button>
+      <div id="acc3" class="w3-hide w3-white w3-card">
+        <a
+          href="avPhotoGallery.html"
+          class="w3-bar-item w3-button w3-hover-blue"
+          >Photo Gallery</a
+        >
+        <a href="avReview.html" class="w3-bar-item w3-button w3-hover-blue"
+          >Reviews & Testimonials</a
+        >
+      </div>
+      <a href="avCarTalk.html" class="w3-bar-item w3-button w3-hover-blue"
+        >Our Blog: Car Talk</a
+      >
+      <a href="avContactJoin.html" class="w3-bar-item w3-button w3-hover-blue"
+        >Contact Information</a
+      >
+    </div>
+
+    <!-- Overlay -->
+    <div onclick="w3_close()" id="myOverlay"></div>
+
+    <!-- Main content -->
+    <main class="w3-container" style="flex: 1">
+      <!-- Post 1 -->
+      <article class="blog-post">
+        <h2>How to Take Your Car Out of Winter Storage</h2>
+        <p>
+          <strong>Written by Paul MacKay</strong> &nbsp;|&nbsp; <em>March 7</em>
+        </p>
+
+        <p>
+          Summer will be here soon. Sports car, classic car and hobby car
+          owners, start your engines!
+        </p>
+        <p>
+          Actually, before you do, you’ll want to follow some simple steps to
+          bring your summer ride out to play after a long winter.
+        </p>
+
+        <h3>Top 5 checklist for bringing your car out of winter storage</h3>
+
+        <h4>1. Inspect Battery</h4>
+        <p>
+          Check your battery’s condition. Ensure it was on a maintainer, that
+          it’s fully charged, and clean the terminals if necessary. Avoid
+          jump-starting a drained battery.
+        </p>
+
+        <h4>2. Test Engine Oil</h4>
+        <p>
+          Check the oil level and change it soon, even if it was changed before
+          storage — fresh oil protects your engine.
+        </p>
+
+        <h4>3. Examine Other Fluids</h4>
+        <p>
+          Check coolant, brake, power steering, and fuel. If you didn’t use fuel
+          stabilizer, add an octane booster and fill up with premium gas.
+        </p>
+
+        <h4>4. Perform a Visual Check</h4>
+        <p>
+          Inspect for leaks, cracks, corrosion, loose clamps, and rodent damage
+          before starting the engine.
+        </p>
+
+        <h4>5. Check Tires</h4>
+        <p>Inflate to the recommended PSI and inspect for cracks or bulges.</p>
+
+        <h3>Other Items</h3>
+        <ul>
+          <li>Inspect brakes, suspension, and exhaust.</li>
+          <li>Remove any material blocking the tailpipe.</li>
+          <li>Test headlights, blinkers, and taillights.</li>
+          <li>Inspect wipers and wash the car.</li>
+          <li>Air out the interior.</li>
+        </ul>
+
+        <p>
+          Once checks are complete, start your car and let it idle to operating
+          temperature before driving. Take it easy the first few miles!
+        </p>
+
+        <p class="blog-author">Written by Paul MacKay</p>
+
+        <!-- Comments -->
+        <div class="comment-section">
+          <h4>Comments (1)</h4>
+          <div class="comment"><strong>Kevin:</strong> Great advice. 👍</div>
+          <form class="comment-form">
+            <h4>Leave a Comment</h4>
+            <input type="text" placeholder="Your Name" required />
+            <textarea
+              rows="4"
+              placeholder="Your Comment..."
+              required
+            ></textarea>
+            <button class="w3-button w3-blue" type="submit">
+              Post Comment
+            </button>
+          </form>
+        </div>
+      </article>
+
+      <!-- Post 2 -->
+      <article class="blog-post">
+        <h2>Accidents Happen...</h2>
+        <p>
+          <strong>Written by Paul MacKay</strong> &nbsp;|&nbsp;
+          <em>February 11</em>
+        </p>
+
+        <p>
+          Accidents are something no one really prepares for, although everyone
+          should. Statistics show that during the average driver’s lifetime
+          they’ll be involved in 3 to 4 accidents. So a little preventive
+          knowledge goes a long way.
+        </p>
+
+        <h3>What to do at the accident scene</h3>
+        <ul>
+          <li>Check for injuries and call 911 if needed.</li>
+          <li>
+            Even if you feel fine, get checked at a hospital — some injuries
+            aren’t immediately obvious.
+          </li>
+          <li>
+            Exchange all necessary information: driver’s license, registration,
+            VIN, and insurance details.
+          </li>
+          <li>
+            Take photos of both vehicles, the surroundings, and any damage or
+            skid marks.
+          </li>
+          <li>
+            File a police report and keep a copy for your insurance company.
+          </li>
+          <li>Gather witness names, numbers, and statements if possible.</li>
+          <li>Ask police if anyone is being cited.</li>
+          <li>Contact your insurance company immediately.</li>
+          <li>If towed, tell the tow company where to bring your car.</li>
+          <li>Stay calm — cars can be fixed. Your health is more important.</li>
+        </ul>
+
+        <p>
+          After you get home, you can search “What should I do after an accident
+          in Massachusetts” to double-check that you didn’t miss anything.
+          Remember, it may seem devastating, but with a professional repair shop
+          like AV Repair, your vehicle will be back to new in no time.
+        </p>
+
+        <p class="blog-author">Written by Paul MacKay</p>
+
+        <!-- Comments -->
+        <div class="comment-section">
+          <h4>Comments</h4>
+          <div class="comment">
+            <strong>Mary:</strong> Very helpful information — thank you!
+          </div>
+          <form class="comment-form">
+            <h4>Leave a Comment</h4>
+            <input type="text" placeholder="Your Name" required />
+            <textarea
+              rows="4"
+              placeholder="Your Comment..."
+              required
+            ></textarea>
+            <button class="w3-button w3-blue" type="submit">
+              Post Comment
+            </button>
+          </form>
+        </div>
+      </article>
+
+      <!-- Newsletter Subscription -->
+      <section
+        class="w3-container w3-center w3-padding-32"
+        style="
+          max-width: 700px;
+          margin: 60px auto;
+          background: white;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+          border-radius: 12px;
+        "
+      >
+        <h3 style="font-weight: 800; color: #003366">
+          Subscribe to Our Newsletter
+        </h3>
+        <p style="font-size: 18px">
+          Stay up-to-date with car care tips, repair advice, and AV Repair news!
+        </p>
+
+        <form action="#" method="post" class="w3-margin-top">
+          <input
+            class="w3-input w3-border w3-round-large"
+            type="email"
+            name="email"
+            placeholder="Enter your email address"
+            required
+            style="max-width: 400px; margin: 0 auto 15px auto"
+          />
+          <button
+            class="w3-button w3-blue w3-round-large"
+            type="submit"
+            style="padding: 10px 30px; font-weight: bold"
+          >
+            Subscribe
+          </button>
+        </form>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer
+      style="
+        background-color: #f2f2f2;
+        color: #333;
+        padding: 20px 40px;
+        text-align: left;
+      "
+    >
+      <div
+        style="
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          flex-wrap: wrap;
+        "
+      >
+        <div style="flex: 1; min-width: 200px">
+          <p>
+            <strong>Address:</strong> 2350 Turnpike St, North Andover, MA
+            01845<br />
+            <strong>Phone:</strong> (978) 975-0957<br />
+            <strong>Email:</strong>
+            <a href="mailto:avrepairinc@gmail.com">avrepairinc@gmail.com</a>
+          </p>
+        </div>
+
+        <div style="flex: 0 0 auto; text-align: center">
+          <img
+            src="images/av-logo.png"
+            alt="Company Logo"
+            style="height: 100px; max-width: 300%"
+          />
+        </div>
+
+        <div
+          style="
+            flex: 1;
+            min-width: 200px;
+            text-align: right;
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+          "
+        >
+          <a
+            href="https://www.facebook.com/groups/1889685858011404/"
+            target="_blank"
+            style="text-decoration: none"
+          >
+            <button
+              class="w3-button"
+              style="
+                padding: 5px 10px;
+                display: flex;
+                align-items: center;
+                gap: 5px;
+              "
+            >
+              <img
+                src="images/facebook-circular-logo.png"
+                alt="Facebook"
+                style="height: 24px; width: 24px"
+              />
+              Visit Facebook
+            </button>
+          </a>
+          <a href="avContactJoin.html" style="text-decoration: none">
+            <button class="w3-button w3-black">Join Us</button>
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+      function w3_open() {
+        document.getElementById("mySidebar").classList.add("show");
+        document.getElementById("myOverlay").classList.add("show");
+      }
+
+      function w3_close() {
+        document.getElementById("mySidebar").classList.remove("show");
+        document.getElementById("myOverlay").classList.remove("show");
+      }
+
+      function toggleAccordion(id, btn) {
+        var x = document.getElementById(id);
+        var arrow = btn.querySelector(".arrow");
+        if (x.classList.contains("w3-show")) {
+          x.classList.remove("w3-show");
+          x.classList.add("w3-hide");
+          arrow.textContent = "▼";
+        } else {
+          x.classList.remove("w3-hide");
+          x.classList.add("w3-show");
+          arrow.textContent = "▲";
         }
+      }
+
+      // Simple front-end comment handler (not stored permanently)
+      document.querySelectorAll(".comment-form").forEach((form) => {
+        form.addEventListener("submit", (e) => {
+          e.preventDefault();
+          const name = form.querySelector("input").value.trim();
+          const commentText = form.querySelector("textarea").value.trim();
+          if (name && commentText) {
+            const newComment = document.createElement("div");
+            newComment.className = "comment";
+            newComment.innerHTML = `<strong>${name}:</strong> ${commentText}`;
+            form.parentElement.insertBefore(newComment, form);
+            form.reset();
+          }
+        });
       });
-    });
-  </script>
-</body>
+    </script>
+  </body>
 </html>

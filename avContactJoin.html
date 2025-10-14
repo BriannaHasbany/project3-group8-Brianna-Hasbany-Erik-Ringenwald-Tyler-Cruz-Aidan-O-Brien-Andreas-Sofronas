@@ -1,273 +1,562 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
-   <title>Contact</title>
-  <style>
-    h1 {
-      font-family: "Arial Black", sans-serif;
-      font-weight: 900;
-      letter-spacing: 1px;
-    }
-
-    h2, h3, h4, h5, h6 {
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    }  
-    
-    body {
-      font-family: Tahoma, "Trebuchet MS", sans-serif;
-      margin: 0;
-      background-color: beige;
-    }
-  
-    header {
-      background-image: url("images/avHeader.jpg"); 
-      background-position: center;
-      height: 200px; 
-      position: relative;
-      color: white;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
-      z-index: 1;
-    }
-
-    header h1 {
-      font-family:"Arial Black", sans-serif;
-      font-weight: 900;
-      letter-spacing: 2px;
-      margin: 0;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -100%);
-      font-size: 40px;
-    }
-
-    .hamburger {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      background: rgba(0,0,0,0.5);
-      color: white;
-    }
-
-    /* Overlay */
-    #myOverlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0,0,0,0.6);
-      z-index: 999;
-      display: none;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-
-    #myOverlay.show {
-      display: block;
-      opacity: 1;
-    }
-
-    /* Sidebar */
-    #mySidebar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 260px;
-      background: white;
-      z-index: 1000;
-      transform: translateX(-100%);
-      transition: transform 0.3s ease;
-    }
-
-    #mySidebar.show {
-      transform: translateX(0);
-    }
-
-    .close-btn {
-      font-size: 14px;
-      padding: 6px 10px;
-    }
-
-    .section-block {
-      margin-top: 80px;
-      padding: 40px;
-      background-color: #fffaf0;
-      border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-    html {
-      scroll-behavior: smooth;
-    }
-  </style>
-</head>
-<body style="display: flex; flex-direction: column; min-height: 100vh; margin: 0;">
-
-  <!-- Header with image background -->
-  <header class="w3-display-container">
-    <button class="w3-button w3-xlarge hamburger" onclick="w3_open()">&#9776;</button>
-    <h1>Contact Us Today</h1>
-  </header>
-
-  <!-- Sidebar -->
-  <div class="w3-sidebar w3-bar-block" id="mySidebar">
-    <div class="w3-container w3-center" style="padding:16px">
-      <img src="images/av-logo.png" alt="Company Logo" style="width:200px;max-width:100%">
-    </div>
-    <hr>
-    <button class="w3-bar-item w3-button close-btn w3-right" onclick="w3_close()">✕ Close</button>
-    <br><br>
-    <a href="index.html" class="w3-bar-item w3-button w3-hover-blue">Home</a>
-    <a href="avWhoWeAre.html" class="w3-bar-item w3-button w3-hover-blue">About Us</a>
-    <button class="w3-button w3-block w3-left-align" onclick="toggleAccordion('acc2', this)">
-      Services <span class="arrow">▼</span>
-    </button>
-    <div id="acc2" class="w3-hide w3-white w3-card">
-      <a href="avCollisionRepairs.html" class="w3-bar-item w3-button w3-hover-blue">Collision & Body Work</a>
-      <a href="avMaintenence.html" class="w3-bar-item w3-button w3-hover-blue">Maintenance & Routine Services</a>
-      <a href="avAutomotive.html" class="w3-bar-item w3-button w3-hover-blue">Mechanical & Performance</a>
-      <a href="avEstimates.html" class="w3-bar-item w3-button w3-hover-blue">Estimates & Records</a>
-    </div>
-    <button class="w3-button w3-block w3-left-align" onclick="toggleAccordion('acc3', this)">
-      Our Work <span class="arrow">▼</span>
-    </button>
-    <div id="acc3" class="w3-hide w3-white w3-card">
-      <a href="avPhotoGallery.html" class="w3-bar-item w3-button w3-hover-blue">Photo Gallery</a>
-      <a href="avReview.html" class="w3-bar-item w3-button w3-hover-blue">Reviews & Testimonials</a>
-    </div>
-    <a href="avCarTalk.html" class="w3-bar-item w3-button w3-hover-blue">Our Blog: Car Talk</a>
-    <a href="avContactJoin.html" class="w3-bar-item w3-button w3-hover-blue">Contact Information</a>
-  </div>
-
-  <!-- Overlay -->
-  <div onclick="w3_close()" id="myOverlay"></div>
-
-  <!-- Main content -->
-  <main class="w3-container" style="flex: 1; padding: 40px 20px;">
-    <h2 class="w3-center" style="font-size: 36px; font-weight: 800; color: #b30000;">
-      Get in touch with AV Repair
-    </h2>
-   <p class="w3-center" style="font-size: 18px;">
-    We're here to help - contact us by phone, email, or stop by the repair shop.
-   </p>
-
-   <div
-   class="section-block" style="margin-top: 50px;">
-  <h3> Our Contact Information</h3>
-  <p style="font-size: 18px; line-height: 1.8;">
-    <strong> Address:</strong><br />
-    2350 Turnpike Street <br />
-    North Andover, MA 01845
-  </p>
-<p style="font-size: 18px; line-height: 1.8;">
-  <strong>Phone:</strong><a href="tel:19789750957" style="color: #b30000; font-weight: bold;"> (978) 975-0957</a><br />
-  <strong>Email:</strong> <a href="mailto: avrepairinc@gmail.com" style="color: #b30000; font-weight: bold;"> avrepairinc@gmail.com</a>
-</p>
-
-<p style="font-size: 18px;">
-  Whether you're looking for a quote, have questions about services, or want to join our team, we'd love to hear from you!
-  </p>
-
-  <div style="margin-top: 30px;">
-    <a href="https://www.facebook.com/groups/1889685858011404/" target="_blank" style="text-decoration: none;">
-      <button class="w3-button w3-margin-bottom" style="background-color: #3b5998; color:white ; padding: 10px 20px; font-weight: bold;">
-        Visit Us on Facebook
-      </button>
-    </a>
-    <a href="avContactJoin.html" style="text-decoration: none;">
-      <button class="w3-button w3-black w3-margin-left w3-margin-bottom" style="padding: 10px 20px; font-weight: bold;">
-        Join Our Team
-      </button>
-    </a>
-  </div>
-</div>
-
-<div class="section-block" style="margin-top: 40px;">
-  <h3>Schedule a Drop-Off or Send a Message</h3>
-  <form action="#" method="post">
-    
-    <div class="w3-row-padding">
-      <div class="w3-half w3-margin-bottom">
-        <label for="firstName" style="font-weight: bold;">First Name</label>
-        <input class="w3-input w3-border" type="text" id="firstName" name="firstName" required>
-      </div>
-      <div class="w3-half w3-margin-bottom">
-        <label for="lastName" style="font-weight: bold;">Last Name</label>
-        <input class="w3-input w3-border" type="text" id="lastName" name="lastName" required>
-      </div>
-    </div>
-
-    <div class="w3-row-padding">
-      <div class="w3-half w3-margin-bottom">
-        <label for="phone" style="font-weight: bold;">Phone <span style="color:red">*</span></label>
-        <input class="w3-input w3-border" type="tel" id="phone" name="phone" required>
-      </div>
-      <div class="w3-half w3-margin-bottom">
-        <label for="email" style="font-weight: bold;">Email <span style="color:red">*</span></label>
-        <input class="w3-input w3-border" type="email" id="email" name="email" required>
-      </div>
-    </div>
-
-    <div class="w3-row-padding">
-      <div class="w3-half w3-margin-bottom">
-        <label for="license" style="font-weight: bold;">License Plate <span style="color:red">*</span></label>
-        <input class="w3-input w3-border" type="text" id="license" name="license" required>
-      </div>
-      <div class="w3-half w3-margin-bottom">
-        <label for="keyLocation" style="font-weight: bold;">Where I am leaving the car keys <span style="color:red">*</span></label>
-        <input class="w3-input w3-border" type="text" id="keyLocation" name="keyLocation" required>
-      </div>
-    </div>
-
-    <div class="w3-margin-top padding">
-      <button class="w3-button w3-black" type="submit" style="padding: 10px 24px; font-weight: bold;">
-        Submit
-      </button>
-    </div>
-
-  </form>
-  </main>
-    
-</div>
-
-
-<!-- Footer -->
-<footer class="w3-container w3-center" style="padding: 32px; background-color: #f1f1f1;">
-  <p style="margin: 0;">&copy; 2025 AV Repair inc. All rights reserved</p>
-  <img src="images/av-logo.png" alt="Company Logo" style="height: 100px; max-width: 300%;">
-</footer>
-
-  <!-- JavaScript-->
-  <script>
-    function w3_open() {
-      document.getElementById("mySidebar").classList.add("show");
-      document.getElementById("myOverlay").classList.add("show");
-    }
-
-    function w3_close() {
-      document.getElementById("mySidebar").classList.remove("show");
-      document.getElementById("myOverlay").classList.remove("show");
-    }
-
-    function toggleAccordion(id, btn) {
-    const element = document.getElementById(id);
-    const isOpen = element.classList.contains("w3-show");
-    const arrow = btn.querySelector(".arrow");
-
-    if (isOpen) {
-      element.classList.remove("w3-show");
-      element.classList.add("w3-hide");
-      arrow.textContent = "▼";
-    } else {
-      element.classList.remove("w3-hide");
-      element.classList.add("w3-show");
-      arrow.textContent = "▲";
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css" />
+    <title>Contact</title>
+    <style>
+      h1 {
+        font-family: "Arial Black", sans-serif;
+        font-weight: 900;
+        letter-spacing: 1px;
       }
-    }
-  </script>
-</body>
+
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        font-family: Tahoma, "Trebuchet MS", sans-serif;
+        margin: 0;
+        background-color: beige;
+      }
+
+      header {
+        background-image: url("images/avHeader.jpg");
+        background-position: center;
+        height: 200px;
+        position: relative;
+        color: white;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+        z-index: 1;
+      }
+
+      header h1 {
+        font-family: "Arial Black", sans-serif;
+        font-weight: 900;
+        letter-spacing: 2px;
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -100%);
+        font-size: 40px;
+      }
+
+      .hamburger {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        background: rgba(0, 0, 0, 0.5);
+        color: white;
+      }
+
+      /* Overlay */
+      #myOverlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+        z-index: 999;
+        display: none;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      #myOverlay.show {
+        display: block;
+        opacity: 1;
+      }
+
+      /* Sidebar */
+      #mySidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 260px;
+        background: white;
+        z-index: 1000;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+      }
+
+      #mySidebar.show {
+        transform: translateX(0);
+      }
+
+      .close-btn {
+        font-size: 14px;
+        padding: 6px 10px;
+      }
+
+      .section-block {
+        margin-top: 80px;
+        padding: 40px;
+        background-color: #fffaf0;
+        border-radius: 10px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
+  </head>
+  <body
+    style="display: flex; flex-direction: column; min-height: 100vh; margin: 0"
+  >
+    <!-- Header with image background -->
+    <header class="w3-display-container">
+      <button class="w3-button w3-xlarge hamburger" onclick="w3_open()">
+        &#9776;
+      </button>
+      <h1>Contact Us Today</h1>
+    </header>
+
+    <!-- Sidebar -->
+    <div class="w3-sidebar w3-bar-block" id="mySidebar">
+      <div class="w3-container w3-center" style="padding: 16px">
+        <img
+          src="images/av-logo.png"
+          alt="Company Logo"
+          style="width: 200px; max-width: 100%"
+        />
+      </div>
+      <hr />
+      <button
+        class="w3-bar-item w3-button close-btn w3-right"
+        onclick="w3_close()"
+      >
+        ✕ Close
+      </button>
+      <br /><br />
+      <a href="index.html" class="w3-bar-item w3-button w3-hover-blue">Home</a>
+      <a href="avWhoWeAre.html" class="w3-bar-item w3-button w3-hover-blue"
+        >About Us</a
+      >
+      <button
+        class="w3-button w3-block w3-left-align"
+        onclick="toggleAccordion('acc2', this)"
+      >
+        Services <span class="arrow">▼</span>
+      </button>
+      <div id="acc2" class="w3-hide w3-white w3-card">
+        <a
+          href="avCollisionRepairs.html"
+          class="w3-bar-item w3-button w3-hover-blue"
+          >Collision & Body Work</a
+        >
+        <a href="avMaintenence.html" class="w3-bar-item w3-button w3-hover-blue"
+          >Maintenance & Routine Services</a
+        >
+        <a href="avAutomotive.html" class="w3-bar-item w3-button w3-hover-blue"
+          >Mechanical & Performance</a
+        >
+        <a href="avEstimates.html" class="w3-bar-item w3-button w3-hover-blue"
+          >Estimates & Records</a
+        >
+      </div>
+      <button
+        class="w3-button w3-block w3-left-align"
+        onclick="toggleAccordion('acc3', this)"
+      >
+        Our Work <span class="arrow">▼</span>
+      </button>
+      <div id="acc3" class="w3-hide w3-white w3-card">
+        <a
+          href="avPhotoGallery.html"
+          class="w3-bar-item w3-button w3-hover-blue"
+          >Photo Gallery</a
+        >
+        <a href="avReview.html" class="w3-bar-item w3-button w3-hover-blue"
+          >Reviews & Testimonials</a
+        >
+      </div>
+      <a href="avCarTalk.html" class="w3-bar-item w3-button w3-hover-blue"
+        >Our Blog: Car Talk</a
+      >
+      <a href="avContactJoin.html" class="w3-bar-item w3-button w3-hover-blue"
+        >Contact Information</a
+      >
+    </div>
+
+    <!-- Overlay -->
+    <div onclick="w3_close()" id="myOverlay"></div>
+
+    <!-- Main content -->
+    <main class="w3-container" style="flex: 1; padding: 40px 20px">
+      <h2
+        class="w3-center"
+        style="font-size: 36px; font-weight: 800; color: #b30000"
+      >
+        Get in touch with AV Repair
+      </h2>
+      <p class="w3-center" style="font-size: 18px">
+        We're here to help - contact us by phone, email, or stop by the repair
+        shop.
+      </p>
+
+      <div class="section-block" style="margin-top: 50px">
+        <h3><b> Our Contact Information</b></h3>
+        <p style="font-size: 18px; line-height: 1.8">
+          <strong> Address:</strong><br />
+          2350 Turnpike Street <br />
+          North Andover, MA 01845
+        </p>
+        <p style="font-size: 18px; line-height: 1.8">
+          <strong>Phone:</strong
+          ><a href="tel:19789750957" style="color: #b30000; font-weight: bold">
+            (978) 975-0957</a
+          ><br />
+          <strong>Email:</strong>
+          <a
+            href="mailto: avrepairinc@gmail.com"
+            style="color: #b30000; font-weight: bold"
+          >
+            avrepairinc@gmail.com</a
+          >
+        </p>
+
+        <p style="font-size: 18px">
+          Whether you're looking for a quote, have questions about services, or
+          want to join our team, we'd love to hear from you!
+        </p>
+
+        <div style="margin-top: 30px">
+          <a
+            href="https://www.facebook.com/groups/1889685858011404/"
+            target="_blank"
+            style="text-decoration: none"
+          >
+            <button
+              class="w3-button w3-margin-bottom"
+              style="
+                background-color: #3b5998;
+                color: white;
+                padding: 10px 20px;
+                font-weight: bold;
+              "
+            >
+              Visit Us on Facebook
+            </button>
+          </a>
+          <a href="avContactJoin.html" style="text-decoration: none">
+            <button
+              class="w3-button w3-black w3-margin-left w3-margin-bottom"
+              style="padding: 10px 20px; font-weight: bold"
+            >
+              Join Our Team
+            </button>
+          </a>
+        </div>
+      </div>
+
+      <div class="section-block" style="margin-top: 40px">
+        <h3><b>Schedule a Drop-Off or Send a Message</b></h3>
+        <form action="#" method="post">
+          <div class="w3-row-padding">
+            <div class="w3-half w3-margin-bottom">
+              <label for="firstName" style="font-weight: bold"
+                >First Name</label
+              >
+              <input
+                class="w3-input w3-border"
+                type="text"
+                id="firstName"
+                name="firstName"
+                required
+              />
+            </div>
+            <div class="w3-half w3-margin-bottom">
+              <label for="lastName" style="font-weight: bold">Last Name</label>
+              <input
+                class="w3-input w3-border"
+                type="text"
+                id="lastName"
+                name="lastName"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="w3-row-padding">
+            <div class="w3-half w3-margin-bottom">
+              <label for="phone" style="font-weight: bold"
+                >Phone <span style="color: red">*</span></label
+              >
+              <input
+                class="w3-input w3-border"
+                type="tel"
+                id="phone"
+                name="phone"
+                required
+              />
+            </div>
+            <div class="w3-half w3-margin-bottom">
+              <label for="email" style="font-weight: bold"
+                >Email <span style="color: red">*</span></label
+              >
+              <input
+                class="w3-input w3-border"
+                type="email"
+                id="email"
+                name="email"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="w3-row-padding">
+            <div class="w3-half w3-margin-bottom">
+              <label for="license" style="font-weight: bold"
+                >License Plate <span style="color: red">*</span></label
+              >
+              <input
+                class="w3-input w3-border"
+                type="text"
+                id="license"
+                name="license"
+                required
+              />
+            </div>
+            <div class="w3-half w3-margin-bottom">
+              <label for="keyLocation" style="font-weight: bold"
+                >Where I am leaving the car keys
+                <span style="color: red">*</span></label
+              >
+              <input
+                class="w3-input w3-border"
+                type="text"
+                id="keyLocation"
+                name="keyLocation"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="w3-margin-top padding">
+            <button
+              class="w3-button w3-black"
+              type="submit"
+              style="padding: 10px 24px; font-weight: bold"
+            >
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+      <div class="section-block" style="margin-top: 40px">
+        <h3>
+          <b>We are Hiring! Apply to Be a Mechanic or Auto Technician Today!</b>
+        </h3>
+        <form action="#" method="post" enctype="multipart/form-data">
+          <div class="w3-row-padding">
+            <div class="w3-half w3-margin-bottom">
+              <label for="firstName" style="font-weight: bold"
+                >First Name <span style="color: red">*</span></label
+              >
+              <input
+                class="w3-input w3-border"
+                type="text"
+                id="firstName"
+                name="firstName"
+                required
+              />
+            </div>
+            <div class="w3-half w3-margin-bottom">
+              <label for="lastName" style="font-weight: bold"
+                >Last Name <span style="color: red">*</span></label
+              >
+              <input
+                class="w3-input w3-border"
+                type="text"
+                id="lastName"
+                name="lastName"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="w3-row-padding">
+            <div class="w3-half w3-margin-bottom">
+              <label for="phone" style="font-weight: bold"
+                >Phone <span style="color: red">*</span></label
+              >
+              <input
+                class="w3-input w3-border"
+                type="tel"
+                id="phone"
+                name="phone"
+                required
+              />
+            </div>
+            <div class="w3-half w3-margin-bottom">
+              <label for="email" style="font-weight: bold"
+                >Email <span style="color: red">*</span></label
+              >
+              <input
+                class="w3-input w3-border"
+                type="email"
+                id="email"
+                name="email"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="w3-row-padding">
+            <div class="w3-half w3-margin-bottom">
+              <label for="about" style="font-weight: bold"
+                >Tell Us About You <span style="color: red">*</span></label
+              >
+              <textarea
+                class="w3-input w3-border"
+                id="about"
+                name="about"
+                rows="5"
+                required
+                placeholder="Share your experience, skills, and why you'd like to join AV Repair..."
+              ></textarea>
+            </div>
+            <div class="w3-half w3-margin-bottom">
+              <label for="resume" style="font-weight: bold"
+                >Upload Your Résumé <span style="color: red">*</span></label
+              >
+              <input
+                class="w3-input w3-border"
+                type="file"
+                id="resume"
+                name="resume"
+                accept=".pdf,.doc,.docx"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="w3-margin-top padding">
+            <button
+              class="w3-button w3-black"
+              type="submit"
+              style="padding: 10px 24px; font-weight: bold"
+            >
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Visit Us Section -->
+      <div
+        class="w3-row-padding"
+        style="
+          margin-top: 40px;
+          align-items: center;
+          display: flex;
+          flex-wrap: wrap;
+        "
+      >
+        <!-- Google Map -->
+        <div class="w3-half w3-center w3-margin-bottom">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2946.415292938749!2d-71.11361692407073!3d42.68542821648047!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e309ef0d8f4b65%3A0x3b1b92481a6ad7ee!2s2350%20Turnpike%20St%2C%20North%20Andover%2C%20MA%2001845!5e0!3m2!1sen!2sus!4v1697077609824!5m2!1sen!2sus"
+            width="100%"
+            height="350"
+            style="border: 0; border-radius: 10px"
+            allowfullscreen=""
+            loading="lazy"
+          >
+          </iframe>
+        </div>
+
+        <!-- Visit Us Text -->
+        <div
+          class="w3-half w3-center"
+          style="
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+          "
+        >
+          <h3
+            style="
+              font-size: 32px;
+              font-weight: 800;
+              color: #b30000;
+              margin-bottom: 10px;
+            "
+          >
+            Visit Us Today!
+          </h3>
+          <p style="font-size: 18px; line-height: 1.6">
+            Stop by our shop for expert auto service and honest advice. We’re
+            located right on Turnpike Street in North Andover — convenient and
+            ready to help you get back on the road fast.
+          </p>
+
+          <a
+            href="https://www.google.com/maps/place/2350+Turnpike+St,+North+Andover,+MA+01845"
+            target="_blank"
+            style="text-decoration: none"
+          >
+            <button
+              class="w3-button w3-black w3-round-large w3-margin-top"
+              style="padding: 10px 24px; font-weight: bold"
+            >
+              Get Directions
+            </button>
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer
+      class="w3-container w3-center"
+      style="padding: 32px; background-color: #f1f1f1"
+    >
+      <p style="margin: 0">&copy; 2025 AV Repair inc. All rights reserved</p>
+      <img
+        src="images/av-logo.png"
+        alt="Company Logo"
+        style="height: 100px; max-width: 300%"
+      />
+    </footer>
+
+    <!-- JavaScript-->
+    <script>
+      function w3_open() {
+        document.getElementById("mySidebar").classList.add("show");
+        document.getElementById("myOverlay").classList.add("show");
+      }
+
+      function w3_close() {
+        document.getElementById("mySidebar").classList.remove("show");
+        document.getElementById("myOverlay").classList.remove("show");
+      }
+
+      function toggleAccordion(id, btn) {
+        const element = document.getElementById(id);
+        const isOpen = element.classList.contains("w3-show");
+        const arrow = btn.querySelector(".arrow");
+
+        if (isOpen) {
+          element.classList.remove("w3-show");
+          element.classList.add("w3-hide");
+          arrow.textContent = "▼";
+        } else {
+          element.classList.remove("w3-hide");
+          element.classList.add("w3-show");
+          arrow.textContent = "▲";
+        }
+      }
+    </script>
+  </body>
 </html>
