@@ -4,7 +4,6 @@ Brianna Hasbany, Tyler Cruz, Andreas Sofronas, Aidan O'Brien, Erik Ringenwald
 
 cs.merrimack.edu hosts:
 http://cs.merrimack.edu/~hasbanyb/avrepairinc/index.html
-http://cs.merrimack.edu/~cruztb/avrepairinc/index.html
 
 ----------------------------------
 PAGE OVERVIEW
